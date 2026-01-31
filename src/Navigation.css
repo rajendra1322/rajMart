@@ -1,0 +1,153 @@
+/* .container{
+    height: 40px;
+    background-color: blue;
+    padding: 20px 20px;
+
+} */
+
+/* 
+body{
+    background: #f5f5f5;
+} */
+.navbar{
+    background-color: #0078AD;
+    font: 25px;
+    width: 1539px;
+    height: 80px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: 0px 0px;
+    margin: 0px 168px; */
+    
+    
+    
+}
+.navbarleft{
+    width:111px ;
+    height: 36px;
+}
+.logoleft{
+    width: 111px;
+    height: 36px;
+    padding: auto;
+    margin-right: 100px;
+
+}
+.middlemain{
+    width: 609px;
+    height: 40px;
+    background-color: #0C5273;
+    /* padding:12px 300px; */
+    border:0px solid black;
+    border-radius: 20px;
+    display: flex;
+    padding:8px 40px 8px 48px;
+    padding-inline-start: 48px;
+    padding-inline-end: 40px;
+    text-align: start;
+    box-sizing: border-box;
+
+    /* flex-direction: column; */
+}
+.searchicons{
+    width: 24px;
+    height: 24px;
+    color: rgb(255,255,255);
+    display: flex;
+    text-align: center;
+    padding: 0%;
+    margin-left: 0px;
+    
+    
+}
+.text{
+    width: 609px;
+    height: 25px;
+    text-align: start;
+}
+
+.search{
+    padding: auto;
+    display: flex;
+    
+    
+}
+.searchtext{
+     width: 409px;
+     height: 25px;
+    font-family: 20px jioType, helvetica,Arial,sans-serif;
+    background-color: rgb(12, 82, 115);
+    border: none;
+    color: #f5f5f5;
+    cursor:text;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+.searchtext::placeholder{
+    color: #f5f5f5;
+}
+.iconham{
+    width: 18px;
+    height: 16px;
+    
+}
+.shopping{
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    
+
+}
+.user{
+    width: 24px;
+    height: 24px;
+}
+.navbarmiddle{
+    display: flex;
+    gap: 50px;
+}
+.shopp{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.shopp:hover{
+    background-color: #0C5273 ;
+    border-radius: 500px;
+    
+    
+} 
+ .rightmain{
+    display: flex;
+    gap: 10px;
+    
+ }
+ .rightnav{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    
+ }
+ .userlogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    text-decoration: none;
+    
+ }
+.userlogo:hover{
+    background-color: #0C5273;
+    border-radius: 50px;
+}
+.intext{
+    font-family:20px jioType, helvetica,Arial,sans-serif ;
+    color: #f5f5f5;
+    text-decoration: none;
+}
