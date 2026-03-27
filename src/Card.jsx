@@ -1,10 +1,10 @@
 import './Card.css'
-import couponsale from "./assets/JioMartSale.webp"
+import image from "./assets/JioMartSale.webp"
 
 function Card(props){
     return (
         <div className='cardCantainer'>
-            <img src={couponsale} alt="couponImage" className='couponI' />
+            <img src={image} alt="couponImage" className='couponI' />
             <div className='offer'>
                 <h1>Flat 50% off</h1>
                 <h3>Min.order value ₹249</h3>
