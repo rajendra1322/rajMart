@@ -20,7 +20,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react"
-import pin from '/home/rajendra/dregali/workspace/jioMart/src/assets/locationnn.svg'
 import axios from "axios"
 import toast from "react-hot-toast"
 
@@ -290,7 +289,6 @@ function Navigation() {
                         <button className="locbtn">Sign In to select address</button>
 
                         <div className="pincodediv">
-                            <img src={pin} alt="pincode" className="pincode" />
                             <a href="/" className="atag" onClick={handlepinclick}>Enter a pincode</a>
                         </div>
                         <div className="locationdiv">
