@@ -1,5 +1,4 @@
 import './Card.css'
-import coupon from '/home/rajendra/dregali/workspace/jioMart/src/assets/JioMartCoupon.webp'
 import couponsale from "./assets/JioMartSale.webp"
 
 function Card(props){
