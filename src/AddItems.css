@@ -1,0 +1,143 @@
+.addsimple{
+    display: flex;
+    gap: 20px;
+    height: 800px;
+    
+}
+.mainadd{
+    width: 1910px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    padding-right: 20px;
+
+}
+.additemscontainer{
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    background-color: rgba(165, 177, 187, 0.096);
+    position: relative;
+    margin-left: -700px;
+    
+    
+    
+
+
+}
+.add{
+    font-size:50px;
+    color: rgba(133, 41, 25, 0.651);
+    margin-left: 600px;
+    margin-bottom: 100px;
+    
+    
+}
+.addbtn{
+    width: 120px;
+    height: 50px;
+    margin: 50px;
+    background-color: rgba(42, 141, 136, 0.973);
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    top: 83px;
+    left: 1250px;
+    cursor: pointer;
+}
+
+
+.productTable{
+    width: 1350px;
+    margin-left: 70px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+    
+
+} 
+.productTable thead{
+    background-color: rgb(37, 37, 90);
+    color: white;
+    ;
+}
+
+
+.productTable th{
+    padding: 25px;
+    text-align: left;
+}
+.productTable td{
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+    text-align: left;
+}
+ 
+
+.viewbtn{
+    width: 120px;
+    height: 50px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+    border-radius: 10px;
+}
+.viewbtn:hover{
+    background-color:rgba(0, 128, 0, 0.664);
+}
+.deltebtn{
+    width:120px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+    border-radius: 10px;
+}
+.deltebtn:hover{
+    background-color: rgba(165, 42, 42, 0.452);
+}
+.deletedmessage{
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.507);
+    color: red;
+    font-size: 20px;
+    width: 300px;
+    position: fixed;
+    top: -250;
+    left: 50%;
+    border-radius: 30px;
+    transform: translateX(-50%) translateY(-250%);
+    animation: slideTopToBottom  3s ease-in forwards;
+}
+.delmsg{
+    color: red;
+    text-align: center;
+}
+@keyframes slideTopToBottom{
+      0% {
+    transform: translateX(-50%) translateY(-250%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(-50%) translateY(50%); 
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(-50%) translateY(50%); 
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-250%); 
+    opacity: 0;
+    }
+}

@@ -1,0 +1,120 @@
+.adminorder{
+    display: flex;
+    width: auto;
+    gap: 20px;
+}
+.adminorderleft{
+    width:250px;
+}
+.adminorderh2{
+    font-weight: bolder;
+    font-size: 30px;
+    color: blue;
+}
+.adminordertable{
+  
+}
+.adminordertable{
+    margin-top: 20px;
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    margin-left: 50px;
+    
+
+
+}
+.adminordertable thead{
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    
+    
+    
+    
+}
+.adminordertable thead th{
+     padding: 5px;
+}
+.adminordertable td{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right:20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+
+}
+table td, table th {
+  padding-right: 5px;
+}
+.hoverbox{
+    height: auto;
+    width: 350px;
+    position: absolute;
+    left: 30%;
+    top: auto;
+    z-index: 999;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.486);
+    padding: 10px;
+}
+.hoveritem{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.hoverimage{
+    width: 100px;
+    height: 100px;
+
+}
+.hoverP{
+    margin-top: 5px;
+    
+}
+.hovernameP{
+    font-weight: bold;
+    font-size: 20px;
+    color: blue;
+}
+.hoverpriceP{
+    font-size: 20px;
+    text-align: left;
+    margin-top: 7px;
+    color: black;
+}
+.active{
+    font-weight: bold;
+    background-color: aliceblue;
+    color: blue;
+    border-radius: 10px;
+}
+.addresshover{
+    height: auto;
+    width: auto;
+    position: absolute;
+    left: 30%;
+    top: auto;
+    z-index: 999;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.486);
+    padding: 20px;
+
+}
+.addresshoverP{
+    font-weight: bold;
+    font-size: 20px;
+    color: blue;
+
+}
+.addresshoverPP{
+    font-size: 20px;
+    text-align: left;
+    margin-top: 7px;
+    color: black;
+
+}

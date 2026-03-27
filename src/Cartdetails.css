@@ -1,0 +1,274 @@
+.maincontainer{
+    width: 1200px;
+    height: 100%;
+    margin-left:300px ;
+    display: flex;
+    
+
+}
+.cartdetailscontainer{
+    width: 800px;
+    height: 100%;
+    margin-bottom: 30px;
+}
+
+.cartdetailsh2{
+    margin: 0%;
+    padding-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 0%;
+}
+.cartdetailsP{
+    padding-top: 30px;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+}
+.amountleft{
+    padding-top: 30px;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+}
+.seconddiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.freedel{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgba(0, 128, 0, 0.74);
+    background-color: rgba(0, 128, 0, 0.137);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.cartproduct{
+    border: 1px solid rgba(0, 0, 0, 0.39);
+    border-radius: 30px;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    height: 100%;
+}
+.deliverydate{
+    color:rgba(0, 128, 0, 0.74) ;
+}
+.detailspro{
+    display: flex;
+}
+.detailspone{
+    height: 100%;
+    padding: 0%;
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 100px;
+    border-radius: 0%;
+}
+.detailsptwo{
+    height: 100%;
+    width: 100%;
+    margin-left: 20px;
+    padding-top: 0%;
+    background-color: rgba(255, 255, 255, 0.062)
+}
+.cartimage{
+    width: 100px;
+    height: 100px;
+    border: none;
+}
+
+.lastline{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.lastsave{
+    margin-left: 20px;
+    color: rgba(0, 0, 255, 0.774);
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 20px;
+    cursor: pointer;
+    
+}
+.lastright{
+    display: flex;
+    margin-right: 20px;
+}
+.lastRone{
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 255, 0.233);
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+}
+.lastRtwo{
+    padding: 10px;
+    font-weight: bold;
+}
+.lastRthree{
+    padding: 5px 5px 5px 5px;
+    border: 1px solid rgba(0, 0, 255, 0.24);
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+
+}
+.lastRone:hover{
+    border: 1px solid rgba(0, 0, 255, 0.945);
+}
+.lastRthree:hover{
+    border: 1px solid rgba(0, 0, 255, 0.945);
+}
+
+.cartdetailscontainertwo{
+    width: 400px;
+    height: 100%;
+    margin-left: 30px;
+    margin-top: 60px;
+}
+.twotop{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgba(0, 128, 0, 0.137);
+    border-radius: 20px;
+}
+.topone{
+    width: 50px;
+    height: 50px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.534);
+    font-family: 20px JioType,helvetica,Arial, Helvetica, sans-serif;
+    color: white;
+    border-radius: 50%;
+    background-color: green;
+    font-size: 20px;
+}
+.toptwo{
+     width: 50px;
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.534);
+    font-family: 18px JioType,helvetica,Arial, Helvetica, sans-serif;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 20px;
+}
+.topthree{
+     width: 50px;
+    height: 50px;
+    padding-left: 20px;
+    padding-top: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.534);
+    font-family: 18px JioType,helvetica,Arial, Helvetica, sans-serif;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 20px;
+}
+.paymentdiv{
+    width: 400px;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.432);
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.lineone{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.linetwo{
+    margin-left: -40px;
+    margin-top: 10px;
+}
+.paymenth2{
+    margin-top: -15px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight:bolder;
+
+}
+.paymentone{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: 16px JioType,helvetica,Arial, Helvetica, sans-serif;
+    color: #000000A6;
+    
+
+}
+.paydcount{
+    color: #00B258;
+    font-weight: bolder;
+}
+.payfree{
+    color: #00B258;
+    font-weight: bolder;    
+}
+.paysaved{
+    color: #00B258;
+    margin-left: 230px;
+    margin-top: -13px;
+    font-weight: bolder;
+}
+.applycoupon{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    cursor: pointer;
+}
+.graphic{
+    background-color:#00B258;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+.apply{
+    margin-left: 20px;
+    margin-top: 7px;
+    font-weight: bolder;
+    color: black;
+}
+.greater{
+    margin-left: 80px;
+    font-weight: bold;
+    font-size: larger;
+    color: blue;
+    margin-top: 7px;
+}
+.msglb{
+    padding: 10px;
+    background-color:#EFE7EF;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #000000A6;
+    font: 17px jioType;
+}
+.btnplace{
+    width: 100%;
+    height: 50px;
+    background-color: #0078AD;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 50px;
+    cursor: pointer;
+}
+.btnplace:hover{
+    background-color: #0C5273;
+}

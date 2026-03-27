@@ -1,0 +1,447 @@
+.ordertop{
+    width: 1920px;
+    height: 100px;
+    background-color: #2778AD;
+}
+.orderimgtop{
+    width: 150px;
+    margin-left: 350px;
+    margin-top: 25px;
+    
+}
+.ordercontainertop{
+    width: 1920px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding-left: 330px;
+
+}
+.orderh2{
+    font-size: 30px;
+}
+.orderbone{
+    width: 800px;
+    height: 100px;
+    margin-top: 100px;
+    margin-left: -180px;
+
+}
+.orderaddress{
+    width: auto;
+    height: auto;
+    border: 1px solid rgba(0, 0, 0, 0.384);
+    border-radius: 20px;
+
+}
+.deliveryP{
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+
+}
+.addressdiv{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.selectP{
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+.orderpen{
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.219);
+    border-radius: 50%;
+    margin-right: 150px;
+    margin-top: 5px;
+    
+}
+.orderpen:hover{
+    border-color: #2778AD;
+}
+.schedulediv{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+.scheduleorder{
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.priceorder{
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+
+}
+.productsorder{
+    height: 200px;
+    width: auto;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 10px;
+}
+.deliverymsg{
+    color: green;
+}
+.arrowdiv{
+    display: flex;
+    justify-content: space-between;
+}
+.orderprice{
+    margin: 5px;
+}
+.arrow{
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+}
+.ordersimg{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.secretdetails{
+    display: flex;
+    flex-direction: row;
+}
+.secretdetailsone{
+   margin-left: 50px;
+}
+
+.orderbtwo{
+    width: 400px;
+    margin-top: 100px;
+}
+.ordersecondtop{
+    width: auto;
+    height:100px ;
+    background-color: rgba(0, 128, 0, 0.199);
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    margin-left: 10px;
+
+}
+.secondone{
+    height: 50px;
+    width: 50px;
+    padding-top: 5px;
+    padding-left: 8px;
+    border: 1px solid green;
+    border-radius: 50%;
+    color: green;
+    font-size: 40px;
+}
+.secondtwo{
+    height: 50px;
+    width: 50px;
+     padding-top: 10px;
+     padding-left: 18px;
+     font-family: 18px JioType,helvetica,Arial, Helvetica, sans-serif;
+    border: 1px solid green;
+    border-radius: 50%;
+    background-color: green;
+    font-size: 20px;
+    
+}
+.secondthree{
+    height: 50px;
+    width: 50px;
+    padding-top: 12px;
+     padding-left: 18px;
+     
+    border: 1px solid rgba(0, 128, 0, 0.466);
+    border-radius: 50%;
+    font-family: 18px JioType,helvetica,Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.lines{
+    margin-bottom: 30px;
+}
+.linesnext{
+    margin-bottom: 30px;
+    margin-left: -50px;
+
+}
+.orderamount{
+    height: 400px;
+    width: auto;
+    border: 1px solid rgba(0, 0, 0, 0.493);
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 20px;
+    
+}
+.orderh2{
+    margin-left: 5px;
+}
+.orderpayone{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+.orderpaytwo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    
+
+}
+.orderpaythree{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+
+}
+.orderpayfour{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+
+}
+.orderpayfree{
+    color: green;
+    font-weight: bold;
+}
+.orderpaydiscount{
+    color: green;
+    font-weight: bold;
+}
+.orderpaysave{
+    margin-left: 170px;
+    margin-top: 30px;
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+.orderbtn{
+     width: 100%;
+    height: 50px;
+    background-color: #0078AD;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.orderbtn:hover{
+     background-color: #0C5273;
+}
+.addressdivcontainer{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.253);
+    backdrop-filter: blur(0px);
+    left: 0;
+    top: 0;
+    z-index: 1;
+    position: fixed;
+    opacity: 0;
+    
+}
+.addresscontainer{
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
+    transition:transform 0.4s ease;
+
+}
+.addresscontainer.show {
+    transform: translateX(0%);
+}
+.addressdivcontainer.show {
+    opacity: 1;
+}
+.addresstop{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.addressh2{
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.addressP{
+    margin-top: 35px;
+    font-size: 25px;
+    margin-right: 20px;
+    cursor: pointer;
+    color: #0078AD;
+}
+.addresssavemain{
+    width: auto;
+    height: 700px;
+    
+}
+.addressh4{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.addressbtnn{
+    margin-top: 50px;
+    margin-left: 20px;
+    width: 350px;
+    height: 50px;
+    color: #0078AD;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 30px;
+    border:1px solid #0079ad60;
+    cursor: pointer;
+}
+.addressbtnn:hover{
+    border:1.5px solid blue;
+}
+.addressaddmain{
+    height: auto;
+    background-color: rgba(245, 222, 179, 0.137);
+    margin-left: 20px;
+
+}
+.addressaddtop{
+    display: flex;
+    justify-content: space-between;
+}
+.addressaddh2{
+    font-size: 30px;
+    margin-left: 10px;
+}
+.addressaddP{
+    font-size: 25px;
+    color: #0078AD;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+.addressaddh4{
+    margin: 20px;
+}
+.addresslabel{
+    color: rgba(0, 0, 0, 0.61);
+}
+.addressinput{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: none;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    margin-bottom: 20px;
+}
+.addressinput:hover{
+    border-color: blue;
+}
+.addressaddcontact{
+    height: auto;
+    background-color: rgba(245, 222, 179, 0.137);
+    margin-left: 20px;
+}
+.addressaddcontacth2{
+    margin-left: 0px;
+    margin-bottom: 1px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.addressaddcontactP{
+    margin-left: 10px;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+.addressaddsave{
+    width: 350px;
+    height: 50px;
+    background-color: #0078AD;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    font-family:16px jioType Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.addressaddsave:hover{
+    background-color:#0C5273;
+}
+.addresssavediv{
+    border: 1px solid blue;
+    width: 280px;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    position: relative;
+}
+.addresssavepen{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid blue;
+    border-radius: 50%;
+    position: absolute;
+    left: 70%;
+    top: -8px;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.addresssavename{
+    color: black;
+    font-size: 19px;
+    padding-bottom: 10px;
+}
+.addresssavedivhome{
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}

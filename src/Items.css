@@ -1,0 +1,58 @@
+.itemsmain{
+    width: 1910px;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.itemscontainer{
+    width: 550px;
+    height: 700px;
+    border-radius: 20px;
+    background-color: rgba(165, 177, 187, 0.096);
+}
+.additems{
+    margin-top: 20px;
+    margin-left: 200px;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+.imageurl{
+    margin-bottom: 20px;
+}
+.selectoption{
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    color: black;
+
+}
+.messagepopup{
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.548);
+    color: blue;
+    width: 300px;
+    font-size: 15px;
+    border-radius: 20px;
+    margin-left: 150px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.btnadd{
+     width: 120px;
+    height: 50px;
+    margin-left: 200px;
+    margin-top: 50px;
+    background-color: rgba(42, 141, 136, 0.973);
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

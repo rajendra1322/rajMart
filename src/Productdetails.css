@@ -1,0 +1,199 @@
+.detailscontainer{
+    height: 900px;
+    width:1400px ;
+    margin-left: 180px;
+    margin-top: 30px;
+    background-color:rgba(128, 128, 128, 0.048);
+    border-radius: 30px;
+    
+    
+
+}
+.detailsdivide{
+    display: flex;
+
+    
+}
+.detailsone{
+    width: 700px;
+    height: 700px;
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-bottom: 80px;
+    border-radius: 30px 0 0 30px;
+}
+.detailstwo{
+    width: 700px;
+    height: 700px;
+    padding-top: 60px;
+    padding-right: 50px;
+    background-color: white;
+    margin-top: 20px;
+    margin-right: 80px;
+    margin-bottom: 80px;
+    border-radius: 0 30px 30px 0;
+
+}
+.divide{
+    background-color: gray;
+    width: 1400px;
+    height:900px ;
+    display: flex;
+   
+}
+.detailsleft{
+    width: 500px;
+    height: 400px;
+    padding: 50px;
+}
+.detailsimage{
+    width: 500px;
+    height: 500px;
+    margin: 50px;
+    border: none;
+    box-shadow: 15px black;
+    padding: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.062);
+}
+.detailsname{
+    font-family: 20px JioType,helvetica,Arial, Helvetica, sans-serif;
+    color: #0c5273;
+    margin-left: 0px;
+}
+.detailswarranty{
+    font-family: 30px JioType,helvetica,Arial, Helvetica, sans-serif;
+    color: black;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-left: 15px;
+
+}
+.priceset{
+    display: flex;
+    align-items: center;
+
+}
+.detailsprice{
+    font-family: 20px JioType,helvetica,Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    color: black;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 20px;
+    
+    
+
+}
+.discount{
+    font-family: 20px JioType,helvetica,Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: auto;
+    height: 30px;
+    color: black;
+    padding: 5px;
+    border-radius: 20px;
+    color: #39763D;
+    background-color: #39763d2f ;
+    margin-left: 10px;
+    margin-top: 10px;
+
+}
+
+.mrp{
+    margin-left: 15px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.offermain{
+    margin-left: 0px;
+}
+.offerbank{
+    border: 1px solid rgba(0, 0, 0, 0.342);
+    padding: 10px;
+    border-radius: 30px;
+    margin-left: 0px;
+
+}
+
+.offerviewbtn{
+    margin-left: 0px;
+    width: 80px;
+    height: 50px;
+    margin-top: 20px;
+    font-family: 20px JioType,helvetica,Arial, Helvetica, sans-serif;
+    color: #0c5273;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    margin-bottom: 20px;
+
+}
+.delivto{
+    margin-left: 0px;
+}
+
+.detailscart{
+    width: 220px;
+    height: 50px;
+    margin-right: 50px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.199);
+    font-family: 20px JioType,helvetica,Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #0c5273;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 50px;
+    background-color: white;
+    
+}
+.detailsbuy{
+    width: 220px;
+    height: 50px;
+    font-family: 20px JioType,helvetica,Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    border-radius: 30px;
+    border: none;
+    background-color: #0c5273a6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.detailscart:hover{
+    border: 1px solid #0c5273;
+}
+.detailsbuy:hover{
+    background-color: #0c5273;
+    
+}
+.cartToast{
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.63);
+    width: 280px;
+    text-align: center;
+    border-radius: 20px;
+    transform: translateX(-200%) translateY(-120%);
+    animation: slideInOut 3s ease-in forwards;
+}
+@keyframes slideInOut{
+    0% {
+    transform: translateX(-200%) translateY(-120%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(200%) translateY(-120%); 
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(200%) translateY(-120%); 
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-200%) translateY(-120%); 
+    opacity: 0;
+    }
+}

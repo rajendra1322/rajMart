@@ -1,0 +1,50 @@
+.productcontainer{
+    height: 340px;
+    width: 1185px;
+    margin-left: 350px;
+    margin-top: 80px;
+    background-color: rgba(0, 255, 255, 0.048);
+    padding: 20px;
+
+}
+.products{
+    width: 220px;
+    height: 291px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+    
+    
+}
+.imageproduct{
+    width: 180px;
+    height: 150px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 5px;
+
+}
+.productname{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.productprice{
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 18px;
+
+}
+.productoffer{
+    background-color: rgba(128, 128, 128, 0.295);
+    height: 20px;
+    width: 75px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #008040;
+    font-size: 13px;
+    margin-top: auto;
+    margin-left: 10px;
+
+}

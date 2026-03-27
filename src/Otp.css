@@ -1,0 +1,61 @@
+.otpcontainer{
+    width:384px ;
+    height: 550px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 200px;
+    margin-left: 750px;
+    background-color: #fff;
+    box-shadow: 0.1px 0.1px;
+}
+.leftexit{
+   width: 30px;
+   height: 30px;
+   color: blue;
+   margin-top: 20px;
+   cursor: pointer;
+}
+.headding{
+    padding-top: 40px;
+    
+}
+.otp{
+    padding-left: 15px;
+    padding-top: 10px;
+}
+.update{
+    color: blue;
+    padding-left: 15px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+.otpinput{
+    width: 40px;
+    height: 40px;
+    margin-top: 50px;
+    margin-left: 10px;
+    border: none;
+    text-align: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+    font-size: 0.8em;
+    color: black;
+    font-weight: bold;
+    
+    
+}
+.otpmsg{
+    color: red;
+}
+.btnotp{
+    margin-top: 180px;
+    width: 336px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #B2D6E6;
+    color: white;
+    font: 20px "jioType Medium";
+    border: none;
+    transition: 0.3s;
+}

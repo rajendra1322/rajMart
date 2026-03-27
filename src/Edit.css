@@ -1,0 +1,37 @@
+
+.edit{
+    width: 550px;
+    height: 700px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(167, 144, 144, 0.158);
+    margin-top: 150px;
+    margin-left: 670px;
+
+}
+.editheadding{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+
+}
+.editleft{
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.inputspace{
+    margin-left: 50px;
+    gap: 10px;
+}
+.editpname{
+    margin-bottom: 30px;
+}
+.editquantity{
+    margin-bottom: 30px;
+
+}

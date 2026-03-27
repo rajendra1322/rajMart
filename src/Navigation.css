@@ -9,145 +9,594 @@
 body{
     background: #f5f5f5;
 } */
-.navbar{
+
+.navbar {
     background-color: #0078AD;
     font: 25px;
-    width: 1539px;
+    width: 1920px;
     height: 80px;
     color: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
     /* padding: 0px 0px;
     margin: 0px 168px; */
-    
-    
-    
+
+
+
 }
-.navbarleft{
-    width:111px ;
+
+.navbarleft {
+    width: 111px;
     height: 36px;
 }
-.logoleft{
+
+.logoleft {
     width: 111px;
     height: 36px;
     padding: auto;
     margin-right: 100px;
+    font: 24px;
 
 }
-.middlemain{
+
+.middlemain {
     width: 609px;
     height: 40px;
     background-color: #0C5273;
     /* padding:12px 300px; */
-    border:0px solid black;
+    border: 0px solid black;
     border-radius: 20px;
     display: flex;
-    padding:8px 40px 8px 48px;
-    padding-inline-start: 48px;
+    padding: 8px 40px 8px 48px;
+    padding-inline-start: 28px;
     padding-inline-end: 40px;
     text-align: start;
     box-sizing: border-box;
 
+
     /* flex-direction: column; */
 }
-.searchicons{
+
+.main {
+    display: flex;
+    gap: 150px;
+    flex-direction: row;
+    margin-top: 10px;
+
+}
+
+.searchicons {
     width: 24px;
     height: 24px;
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     display: flex;
     text-align: center;
-    padding: 0%;
     margin-left: 0px;
-    
-    
+
+
 }
-.text{
+
+.text {
     width: 609px;
     height: 25px;
     text-align: start;
+
 }
 
-.search{
-    padding: auto;
+.search {
+
     display: flex;
-    
-    
+
+
 }
-.searchtext{
-     width: 409px;
-     height: 25px;
-    font-family: 20px jioType, helvetica,Arial,sans-serif;
+
+.searchtext {
+    width: 409px;
+    height: 25px;
+    font-family: 20px jioType, helvetica, Arial, sans-serif;
     background-color: rgb(12, 82, 115);
     border: none;
     color: #f5f5f5;
-    cursor:text;
+    cursor: text;
     box-sizing: border-box;
-    font-weight: bold;
+
 }
-.searchtext::placeholder{
+
+.searchtext::placeholder {
     color: #f5f5f5;
 }
-.iconham{
+
+.iconham {
     width: 18px;
     height: 16px;
-    
+
 }
-.shopping{
+
+.shopping {
     cursor: pointer;
     width: 24px;
     height: 24px;
     cursor: pointer;
     display: flex;
     text-align: center;
-    
+
 
 }
-.user{
-    width: 24px;
-    height: 24px;
+.firstletter{
+    color: #000000AD;
+    font-weight: bold;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.973);
+    border-radius: 50%;
 }
-.navbarmiddle{
+.firstletter:hover{
+    background-color: black;
+    color: white;
+    padding:none;
+}
+
+
+.navbarmiddle {
     display: flex;
     gap: 50px;
 }
-.shopp{
+
+.shopp {
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
+    padding: 10px;
+    position:relative;
+    
 }
-.shopp:hover{
-    background-color: #0C5273 ;
-    border-radius: 500px;
+
+
+.shopp:hover {
+    background-color: #0c5273bb;
+    border-radius: 50px;
+   
+
+
+}
+.quantityspan{
+    position: absolute;
+    padding: 3px 8px;
+    background-color: rgba(255, 0, 0, 0.712);
+    border-radius: 30px;
+    color: white;
+    left: 30px;
+    top: -7px;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+.addoverlay{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.425);
+    backdrop-filter: blur(1px);
+    position: fixed;
+    padding-top: 125px;
+    z-index: 2;
+}
+.addpopup{
+    width: 550px;
+    height: auto;
+    background-color: white;
+    border-radius: 20px;
+    margin-left: 1150px;
+    margin-top: -50px;
+    position: relative;
+    
+}
+.addpopup::before{
+    content: "";
+    position: absolute;
+    border-width:  15px  ;
+    border-color:  transparent   transparent  white  transparent;
+    border-style: solid;
+    top: -30px;
+    left: 15%;
+}
+.addpopupheader{
+    padding-left: 10px;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 20px;
+    border-bottom: 1px solid black;
+    
+
+}
+.addheadding{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 10px;
+    
+}
+.addheaddingP{
+    color: black;
+    font-weight: bolder;
+    font-size: 24px;
+
+}
+.addname{
+    font-size: 20px;
+    color: black;
+    font-style:oblique;
+    
+}
+.addprice{
+    color: #0078AD;
+    font-size: 20px;
+    font-style:oblique;
+    font-weight: bolder;
     
     
-} 
- .rightmain{
+}
+.addtotaldiv{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+.addtotal{
+    padding-left: 20px;
+    font-size: 20px;
+}
+.addtotalamount{
+    color: black;
+    font-weight: bolder;
+    font-size: 24px;
+}
+.addtobtn{
+    width: 500px;
+    height: 50px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #0078AD;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+}
+.addtobtn:hover{
+  background-color: #0a4e73;
+}
+.rightmain {
     display: flex;
     gap: 10px;
-    
- }
- .rightnav{
+
+}
+
+.rightnav {
     display: flex;
-    gap: 40px;
-    align-items: center;
-    
- }
- .userlogo{
+    gap: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.userlogo {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
     text-decoration: none;
+    gap: 8;
+    padding: 20px;
+    width: 100%;
+    padding-left: 35px;
+    padding-right: 40px;
+    border-radius: 60px;
     
- }
-.userlogo:hover{
-    background-color: #0C5273;
-    border-radius: 50px;
+    
+
+
 }
-.intext{
-    font-family:20px jioType, helvetica,Arial,sans-serif ;
+
+.userlogo:hover {
+    background-color: #0c5273c2;
+    
+    
+    
+}
+
+.intext {
+    font-family: 20px jioType, helvetica, Arial, sans-serif;
     color: #f5f5f5;
     text-decoration: none;
+}
+.user {
+    width: 24px;
+    height: 24px;
+}
+
+.admin{
+    font-family: 20px jioType, helvetica, Arial, sans-serif;
+    text-decoration: none;
+    color: #f5f5f5;
+    padding: 10px;
+    display: flex;
+    margin-top: 7px;
+    
+    
+
+    
+    
+}
+.admin:hover{
+    background-color: #0c5273c2;
+    
+
+}
+
+
+.location {
+    background-color: #0a4e73;
+    color: white;
+    padding: 8px 20px;
+    font-size: 14px;
+    height: 49px;
+    width: 1920px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+
+
+}
+
+.deliveryText {
+    padding-left: 400px;
+    cursor: pointer;
+    color: #f5f5f5;
+    text-decoration: none;
+}
+
+.arrow {
+    padding-right: 100px;
+    margin-left: 5px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.overlay{
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-left: 450px;
+    width: 100%;
+    height: 100px;
+    background: rgb(0, 0, 0,0.1);
+    padding-top: 135px;
+    z-index: 10;
+    backdrop-filter: blur(1px);
+
+}
+.popup{
+    background: white;
+    position: relative;
+    width: 530px;
+    height: 324px;
+    border-radius: 30px;
+    
+}
+.popup::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 20%;
+  border-width: 0 15px 15px 15px;
+  border-style:solid;
+  border-color: transparent transparent white transparent;
+}
+  
+.popupheader{
+    display: flex;
+    flex-direction: row;
+    gap: 170px;
+    cursor: pointer;
+    
+}
+.header{
+    padding-left: 20px;
+    font-weight: bold;
+    color: black;
+    font-size: 24px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.spanX{
+    padding-top: 20px;
+    font-size: 25px;
+    color: rgb(19, 19, 97);
+}
+.pL{
+    margin-left: 20px;
+    padding: 20px;
+    font-family: 20px jioType, helvetica, Arial, sans-serif;
+}
+.locbtn{
+    width: 470px;
+    height: 56px;
+    color: white;
+    font-family: 20px jioType, helvetica, Arial, sans-serif;
+    background: #18698f;
+    margin-left: 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+
+
+}
+.pincodediv{
+    display: flex;
+    gap: 15px;
+    margin-left: 30px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+
+
+}
+
+.pincode{
+    height: 20px;
+    width: 20px;
+    color: #0078AD;
+    
+    
+}
+.pincodediv:hover{
+    background-color: rgba(128, 128, 128, 0.192);
+    height: 50px;
+    width: 180px;
+    border-radius: 50px;
+}
+a{
+    color: #2474b6;
+    
+}
+.atag{
+    color: #2474b6 ;
+}
+.locationimg{
+    height: 20px;
+    width: 20px;
+}
+.locationdiv{
+    display: flex;
+    gap: 15px;
+    margin-left: 30px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 0%;
+
+}
+.locationdiv:hover{
+    background-color: rgba(128, 128, 128, 0.192);
+    height: 50px;
+    width: 200px;
+    border-radius: 50px;
+}
+
+
+.topplaces {
+    height: 40px;
+    width: 1100px;
+    margin-left: 410px;
+    margin-right: 250px;
+    justify-content:space-between;
+    align-items: center;
+    position: absolute;
+
+
+}
+.topplaces >div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.imagetop {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    
+    
+}
+
+.itemstop {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    width: 300px;
+    margin:1px
+    
+
+
+
+}
+
+.atop {
+    font-family: 12px jioType, helvetica, Arial, sans-serif ;
+    margin-right: 10px;
+
+    
+    
+}
+
+.hrline {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.089);
+    width: 1920px;
+    height: 30px;
+    margin-top: 30px;
+}
+.slick-prev,
+.slick-next {
+  
+  background-color: #2474b6;          
+  
+}
+.popupincode{
+    justify-content: space-between;
+        
+}
+.h2pin{
+    margin-left: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.ppin{
+    margin-left: 40px;
+    margin-top: 10px;
+}
+.ppinn{
+    margin-left: 40px;
+    margin-top: 40px;
+}
+.inputpin{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    border-radius: 0;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.btnpin{
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: #B2D6E6;;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+    cursor: not-allowed;
+}
+.btnpin.enabled{
+    cursor: pointer;
+    background-color: #0078AD;
+
 }

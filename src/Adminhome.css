@@ -1,0 +1,46 @@
+.adminhomecontainer{
+    width: 1000px;
+    height: 958px;
+    display: flex;
+    flex-direction: row;
+}
+.adminhomeleft{
+    height: 958px;
+    width: 300px;
+    background-color: rgba(0, 0, 128, 0.719);
+    
+}
+.adminlefth2{
+    color: white;
+    margin-left: 20px;
+    margin-top: 20px;
+
+}
+.adminleftoptionone{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+.adminleftoptionone:hover{
+    background-color: rgba(255, 255, 255, 0.336);
+    color:black;
+}
+.adminleftimg{
+    width: 40px;
+    height: 40px;
+}
+.adminleftimglog{
+    width: 50px;
+    height: 50px;
+    rotate: 180deg;
+}
+.adminleftP{
+    color: white;
+    font-family: 16px jioType Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}

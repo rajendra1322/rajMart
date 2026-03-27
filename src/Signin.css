@@ -1,11 +1,11 @@
 
 .container{
     width:384px ;
-    height: 500px;
+    height: 400px;
     border-radius: 20px;
     padding: 20px;
-    margin-top: 30px;
-    margin-left: 590px;
+    margin-top: 200px;
+    margin-left: 750px;
     background-color: #fff;
     box-shadow: 0.1px 0.1px;
 }
@@ -15,19 +15,19 @@
     padding: 10px;
     cursor: pointer;
     text-decoration: none;
-    
-
-
-}
+    margin-left: 40px;
+    }
 h2{
     padding-top: 25px;
     padding-left: 10px;
+    margin-left: 40px;
 }
 .firstp{
     padding-left: 10px;
     padding-top: 10px;
     font: 16px "jioType";
     color: #000000A6;
+    margin-left: 40px;
 }
 .label{
     padding-left: 10px;
@@ -35,7 +35,14 @@ h2{
     padding-bottom: 20px;
     font: 14px "jioType Medium";
     color: #000000A6;
+    margin-left: 50px;
     
+}
+.labelmail{
+    padding-left: 10px;
+    font: 14px "jioType Medium";
+    color: #000000A6;
+    margin-left: 50px;
 }
 input{
     width: 336px;
@@ -46,10 +53,14 @@ input{
     font-size: 16px;
     border-radius: 6px;
     border: 0.1px soild rgba(0, 0, 0, 0.164);
+    
 
     
 
 
+}
+.message{
+    color: red;
 }
 
 .footer{
@@ -57,6 +68,7 @@ input{
     margin-top: 120px;
     display: block;
     flex-direction: row;
+    margin-left: 40px;
     
     
     
@@ -71,13 +83,24 @@ a{
     color: blue;
     font: 12px;
 }
-.btn{
+.btn {
     width: 336px;
     height: 40px;
     border-radius: 20px;
     background-color: #B2D6E6;
-    color: white;
+    color: rgba(255, 255, 255, 0.993);
     font: 20px "jioType Medium";
     border: none;
+    cursor: not-allowed;
+    transition: 0.3s;
+    margin-left: 30px;
+    margin-top: 10px;
+    
     
 }
+.btn.enabled {
+    background-color: #0078AD;
+    cursor: pointer;
+}
+
+
