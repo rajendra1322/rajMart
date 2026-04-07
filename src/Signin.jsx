@@ -8,7 +8,7 @@ import Otp from "./Otp";
 function Signin(props) {
 
     
-    const [number,setNumber]=useState("");
+    const[number,setNumber]=useState("");
     const[message,setMessage]=useState("");
     const[email,setMail]=useState("");
     const[showotp,setShowopt]=useState(false);
@@ -23,8 +23,7 @@ function Signin(props) {
         const res= await axios.post("https://backend-lr7e.onrender.com/signin",{number,email});
         setMessage(res.data.message);
 
-        if(res.data.message==="user saved successfully"){
-            // console.log("success ");
+        if(res.data.message==="OTP sent successfully"){
             setNumber("");
             setShowopt(true);
             
