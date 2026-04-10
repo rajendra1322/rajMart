@@ -8,14 +8,31 @@ function Orders ()  {
     const [order ,setOrders]=useState([]);
     const [hoverid,setHoerId]=useState(null);
     const[addresshover,setAddresshover]=useState(null);
-    useEffect(()=>{
-        const fetchorder=async()=>{
-        const res=await axios.get("https://backend-lr7e.onrender.com/getorder");
-        setOrders(res.data);
-        }
-        fetchorder();
+    // useEffect(()=>{
+    //     const fetchorder=async()=>{
+    //     const res=await axios.get("https://backend-lr7e.onrender.com/getorder");
+    //     setOrders(res.data);
+    //     console.log("ordersdadta:",res.data)
+    //     }
+    //     fetchorder();
 
-    },[])
+    // },[])
+    const fetchOrders = async () => {
+    const ress= await axios.get("https://backend-lr7e.onrender.com/status/orders");
+    setOrders(ress.data);
+    
+  };
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+  const updateStatus = async (id, status) => {
+    await axios.put(`https://backend-lr7e.onrender.com/status/${id}`, {
+      status,
+    });
+    fetchOrders(); 
+  };
    
     
     
@@ -37,7 +54,7 @@ function Orders ()  {
                             <th>Order Time</th>
                             <th>Address</th>
                             <th>Mobile</th>
-                            <th>view</th>
+                            <th>PaymentType</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -46,7 +63,7 @@ function Orders ()  {
                         return (                          
                         <tr key={item._id}>
 
-                            <td>{item.users[0]?._id}</td>
+                            <td>{item.users[0]?.id}</td>
                             <td onMouseEnter={()=>setHoerId(item._id)}
                             onMouseLeave={()=>setHoerId(null)}
                             className={hoverid===item._id?"active":""}
@@ -91,7 +108,27 @@ function Orders ()  {
                                 )}
                                 </td>
                             <td>{item.users[0]?.phone}</td>
-                            <td><button>VIEW</button></td>
+                            <td>{item.paymentType}</td>
+                            <td>
+                <div className="status-box">
+                  <select
+                    value={item.status}
+                    disabled={item.status==="Delivered"}
+                    onChange={(e) =>
+                      updateStatus(item._id, e.target.value)
+                    }
+                    className='selectorders'
+                  >
+                    <option>Placed</option>
+                    <option>Confirmed</option>
+                    <option>Packed</option>
+                    <option>Shipped</option>
+                    <option>Out for Delivery</option>
+                    <option>Delivered</option>
+                    <option>Cancelled</option>
+                  </select>
+                </div>
+              </td>
 
                         </tr>
                         )

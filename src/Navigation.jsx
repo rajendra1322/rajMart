@@ -24,6 +24,7 @@ import axios from "axios"
 import toast from "react-hot-toast"
 import pin from "./assets/locationnn.svg"
 import locationn from "./assets/locationn.svg"
+import bag from './assets/spbag.webp';
 
 
 function Navigation() {
@@ -164,6 +165,10 @@ function Navigation() {
             
         }
     },[location,navigatee])
+
+    const handleAccount=()=>{
+        navigatee("/Useraccount");
+    }
     
    
 
@@ -175,7 +180,10 @@ function Navigation() {
                 <div className="main">
                     <div className="navbarleft">
                         <Link to="/">
-                            <img src={logo} alt="jiomartlogo" className="logoleft" />
+                        <div className="jiologorajmart">
+                            <img src={bag} alt="jiomartlogo" className="logoleft" />
+                            <p className="jiologoname">RajMart</p>
+                        </div>
                         </Link>
 
                     </div>
@@ -187,7 +195,7 @@ function Navigation() {
 
                             </div>
                             <div className="text">
-                                <input type="text" placeholder="Search In JioMart" className="searchtext" />
+                                <input type="text" placeholder="Search In RajMart" className="searchtext" />
 
 
                             </div>
@@ -242,7 +250,7 @@ function Navigation() {
                                     
                                     {eemail ? (
                                         
-                                        <span className="firstletter">
+                                        <span className="firstletter" onClick={handleAccount}>
                                             {eemail?.email.charAt(0).toUpperCase() || "M"}
                                         </span>
                                         

@@ -16,7 +16,7 @@
 }
 .adminordertable{
     margin-top: 20px;
-    width: 100%;
+    width: 1300px;
     background-color: white;
     border-collapse: collapse;
     margin-left: 50px;
@@ -117,4 +117,20 @@ table td, table th {
     margin-top: 7px;
     color: black;
 
+}
+.status-box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.selectorders {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color:rgba(0, 0, 255, 0.493);
+  color:black;
+  border: none;
+  font-size: 17px;
+  font-style:normal;
+  width: 150px;
 }
