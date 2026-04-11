@@ -55,72 +55,101 @@ function Makepayment() {
   const rightarrow = ">";
 
   const handlepayment = () => {
-    const cod = localStorage.setItem("paymentType", JSON.stringify("cash on delivery"));
+    localStorage.setItem("paymentType", JSON.stringify("cash on delivery"));
     setProced(true);
 
 
   }
   const handlecancel = () => {
     setProced(false);
-    navigate("/Makepayment")
+    
   }
   const handleproced = async () => {
     try {
-      const cod = JSON.parse(localStorage.getItem("paymentType")) || [];
+      const cod = JSON.parse(localStorage.getItem("paymentType")) || "cash on delivery";
       const data = JSON.parse(localStorage.getItem("cart")) || [];
-      const user = JSON.parse(localStorage.getItem("userstore")) || [];
+      const user = JSON.parse(localStorage.getItem("userstore")) || {};
+      const addressget = JSON.parse(localStorage.getItem("address")) || [];
+
+      // ✅ check user
       if (!user || !user._id) {
         toast.error("User not logged in");
         return;
       }
+
+      // ✅ check cart
+      if (!data || data.length === 0) {
+        toast.error("Cart is empty");
+        return;
+      }
+
+      // ✅ check address
+      if (!addressget || addressget.length === 0) {
+        toast.error("Delivery Address is not selected..!");
+        navigate("/OrderReview");
+        return; // 🔥 IMPORTANT FIX
+      }
+
       const formattedUser = {
         _id: user._id,
         email: user.email,
         number: user.number
       };
-      const addressget = JSON.parse(localStorage.getItem("address")) || [];
-      if (addressget.length === 0) {
-        toast.error("Delivery Address is not selected..!");
-        navigate("/OrderReview");
-      } else {
 
-        const res = await axios.post("https://backend-lr7e.onrender.com/ordersave", {
+      // ✅ API call
+      const res = await axios.post(
+        "https://backend-lr7e.onrender.com/ordersave",
+        {
           products: data,
           users: [formattedUser],
           paymentType: cod,
           deliveryaddress: addressget,
+        }
+      );
 
-        })
+      console.log("Order response:", res.data);
+
+      // ✅ safe success check
+      if (res?.data?.message === "Order saved successfully") {
+        toast.success("Order placed successfully");
 
         localStorage.removeItem("cart");
         localStorage.removeItem("paymentType");
+
         setTimeout(() => {
           navigate("/", { state: { showToast: true } });
-
-        }, 1000)
+        }, 1000);
+      } else {
+        toast.error("Order not saved");
       }
-    } catch (err) {
-      console.log(err);
-    }
-  }
 
+    } catch (err) {
+      console.log("ORDER ERROR:", err);
+
+      toast.error(
+        err?.response?.data?.message || "Something went wrong"
+      );
+    }
+  };
   const handleRazorpay = async () => {
     try {
       const data = JSON.parse(localStorage.getItem("cart")) || [];
       const user = JSON.parse(localStorage.getItem("userstore")) || {};
       const address = JSON.parse(localStorage.getItem("address")) || [];
 
-      if (address.length === 0) {
+      // ✅ validation
+      if (!address || address.length === 0) {
         toast.error("Delivery Address is not selected..!");
         navigate("/OrderReview");
         return;
       }
+
       if (!user || !user._id) {
         toast.error("User not logged in");
         return;
       }
 
-
+      // ✅ create order
       const res = await axios.post(
         "https://backend-lr7e.onrender.com/razorpayorder",
         { products: data }
@@ -128,6 +157,20 @@ function Makepayment() {
 
       const order = res.data;
 
+      // ✅ IMPORTANT check
+      if (!order || !order.id) {
+        console.log("Invalid order:", order);
+        toast.error("Unable to create payment order");
+        return;
+      }
+
+      // ✅ Razorpay loaded check
+      if (!window.Razorpay) {
+        toast.error("Razorpay not loaded");
+        return;
+      }
+
+      let paymentSuccess = false;
 
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY,
@@ -137,19 +180,18 @@ function Makepayment() {
         description: "Order Payment",
         order_id: order.id,
 
-        methods: {
-          upi: true,
-          card: true,
-          netbanking: true,
-          wallet: true
-        },
-
         handler: async function (response) {
+          paymentSuccess = true;
+
           try {
+            console.log("Payment response:", response);
+
             const verifyRes = await axios.post(
               "https://backend-lr7e.onrender.com/verify-razorpay",
               {
-                ...response,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
                 products: data,
                 users: [{
                   _id: user._id,
@@ -160,20 +202,28 @@ function Makepayment() {
               }
             );
 
-            if (verifyRes.data.success) {
-              toast.success("Payment Successful ");
+            console.log("Verify response:", verifyRes.data);
+
+            // ✅ strict check
+            if (verifyRes?.data?.success === true) {
+              toast.success("Payment Successful");
 
               localStorage.removeItem("cart");
+              localStorage.removeItem("paymentType"); // ✅ add this
 
               setTimeout(() => {
-                navigate("/", { state: { showToast: true } });
+                navigate("/");
               }, 1500);
             } else {
-              toast.error("Payment verification failed");
+              toast.error(verifyRes?.data?.error || "Payment verification failed"); // ✅ better error
             }
+
           } catch (err) {
-            console.log(err);
-            toast.error("Payment failed");
+            console.log("VERIFY ERROR:", err);
+
+            toast.error(
+              err?.response?.data?.error || "Verification failed"
+            );
           }
         },
 
@@ -188,20 +238,24 @@ function Makepayment() {
         },
       };
 
-
       const rzp = new window.Razorpay(options);
+
+      // ✅ proper failure handling
       rzp.on("payment.failed", function (response) {
-        console.log(response.error);
-        toast.error("Payment failed ");
+        console.log("Payment failed:", response.error);
+
+        if (!paymentSuccess) {
+          toast.error(response?.error?.description || "Payment failed");
+        }
       });
+
       rzp.open();
 
     } catch (err) {
-      console.log(err);
+      console.log("INIT ERROR:", err);
       toast.error("Error initiating Razorpay");
     }
   };
-
   return (
 
     <div className='paymentcontainer'>

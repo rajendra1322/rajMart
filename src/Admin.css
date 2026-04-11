@@ -61,4 +61,8 @@
     transition: 0.3s;
     margin-top: 140px;
 }
+.adminbtn.enabledd{
+    background-color: #0078AD;
+    cursor: pointer;
+}
  

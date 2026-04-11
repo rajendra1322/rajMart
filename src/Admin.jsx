@@ -11,6 +11,7 @@ function Admin() {
     const navigate=useNavigate();   
     const validemail="admin@gmail.com";
     const validpassword="12345";
+    const isvaildd=validemail==="admin@gmail.com" && validpassword==="12345";
     const handleSubmit=(e)=>{
         e.preventDefault();
         if(email===validemail && password===validpassword){
@@ -46,7 +47,7 @@ function Admin() {
         <input type="password" className='password' value={password} onChange={(e)=>setPassword(e.target.value)} />
         
         {message && <p className='message' >{message}</p>}
-        <button className='adminbtn' type='submit' onClick={handleSubmit}>Admin Login</button>
+        <button className={`adminbtn ${isvaildd ? "enabledd":""}`} type='submit' onClick={handleSubmit} disabled={!isvaildd} >Admin Login</button>
       
     </div>
     </div>

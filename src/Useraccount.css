@@ -166,6 +166,7 @@
 .myordertop{
     padding-top: 10px;
     background-color: #195273;
+    color: white;
     width: 300px;
     margin-left: 40px;
     border-radius: 30px;
@@ -176,7 +177,8 @@
     background-color: rgba(128, 128, 128, 0.26);
     padding-top: 10px;
     width: 300px;
-    
+    color: white;
+    font-weight: bold;
     border-radius: 30px;
     
 }
