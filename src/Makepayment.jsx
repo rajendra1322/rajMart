@@ -55,7 +55,7 @@ function Makepayment() {
   const rightarrow = ">";
 
   const handlepayment = () => {
-    localStorage.setItem("paymentType", JSON.stringify("cash on delivery"));
+    
     setProced(true);
 
 
