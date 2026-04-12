@@ -45,6 +45,7 @@ function Navigation() {
     const [showpincode, setShowpincode] = useState(false);
     const [eemail, setEmail] = useState("");
     const location=useLocation();
+    const [userData, setUserData] = useState(null);
     useEffect(() => {
         const fetchData = async() => {
             try{
@@ -124,39 +125,34 @@ function Navigation() {
 
     
 
-    useEffect(() => {
+   async function fetchData() {
+    try {
+        const token = localStorage.getItem("token");
 
-        async function fetchData() {
-            try {
-                const getgmail = await axios.get('https://backend-lr7e.onrender.com/getuser',)
-                const userEmail=getgmail.data[0];
-                if (userEmail) {
-                    setEmail(userEmail);
+        if (!token) return;
 
-                    localStorage.setItem("userstore",JSON.stringify(userEmail));
-                    window.dispatchEvent(new Event("updatedCart"));
-                    
-                    
-                    
+        const res = await axios.get(
+            "https://backend-lr7e.onrender.com/getuser",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
                 }
-
-
             }
-            catch (err) {
-                console.log(err);
-            }
+        );
+
+        if (res.data) {
+            setUserData(res.data);
         }
-        fetchData();
-    }, []);
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+useEffect(() => {
+    fetchData();
+}, []);
     
-    useEffect(()=>{
-        const mail=JSON.parse(localStorage.getItem("userstore"));
-        if(mail){
-            setEmail(mail);
-            
-            
-        }
-    },[])
+    
     useEffect(()=>{
         
         if(location.state?.showToast){
@@ -248,10 +244,10 @@ function Navigation() {
                                 
 
                                     
-                                    {eemail ? (
+                                    {userData ? (
                                         
                                         <span className="firstletter" onClick={handleAccount}>
-                                            {eemail?.email.charAt(0).toUpperCase() || "M"}
+                                            {userData?.email?.charAt(0).toUpperCase() || "M"}
                                         </span>
                                         
                                     ):(

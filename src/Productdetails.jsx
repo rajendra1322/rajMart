@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navigation from './Navigation'
 import axios from 'axios'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import './Productdetails.css'
 import {addtocart} from '../src/utility/cart.js'
 
@@ -10,6 +10,7 @@ function Productdetails (){
     const [product,setProduct]=useState(null);
     const[showmsg,setShowmsg]=useState(false);
     const[disable,setDisable]=useState(false);
+    const navigate=useNavigate();
     const {id}=useParams();
     useEffect(()=>{
     const fetchData=async()=>{
@@ -37,6 +38,7 @@ function Productdetails (){
       setTimeout(()=>{
         setShowmsg(false);
         setDisable(false);
+        navigate("/");
       },3000)
       
     }

@@ -62,54 +62,68 @@ function Makepayment() {
   }
   const handlecancel = () => {
     setProced(false);
-    
+
   }
+
   const handleproced = async () => {
     try {
       const cod = JSON.parse(localStorage.getItem("paymentType")) || "cash on delivery";
       const data = JSON.parse(localStorage.getItem("cart")) || [];
-      const user = JSON.parse(localStorage.getItem("userstore")) || {};
+      const token = localStorage.getItem("token");
       const addressget = JSON.parse(localStorage.getItem("address")) || [];
 
-      // ✅ check user
-      if (!user || !user._id) {
+      const userRes = await axios.get(
+        "https://backend-lr7e.onrender.com/getuser",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+      if (!userRes?.data || !userRes?.data?._id) {
         toast.error("User not logged in");
         return;
       }
 
-      // ✅ check cart
+
       if (!data || data.length === 0) {
         toast.error("Cart is empty");
         return;
       }
 
-      // ✅ check address
+
       if (!addressget || addressget.length === 0) {
         toast.error("Delivery Address is not selected..!");
         navigate("/OrderReview");
-        return; // 🔥 IMPORTANT FIX
+        return;
       }
 
       const formattedUser = {
-        _id: user._id,
-        email: user.email,
-        number: user.number
+        _id: userRes?.data?._id,
+        email: userRes?.data?.email,
+        number: userRes?.data?.number
       };
 
-      // ✅ API call
+
+
+
       const res = await axios.post(
         "https://backend-lr7e.onrender.com/ordersave",
         {
           products: data,
-          users: [formattedUser],
           paymentType: cod,
           deliveryaddress: addressget,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         }
       );
 
       console.log("Order response:", res.data);
 
-      // ✅ safe success check
+
       if (res?.data?.message === "Order saved successfully") {
         toast.success("Order placed successfully");
 
@@ -117,7 +131,7 @@ function Makepayment() {
         localStorage.removeItem("paymentType");
 
         setTimeout(() => {
-          navigate("/", { state: { showToast: true } });
+          navigate("/Useraccount", { state: { showToast: true } });
         }, 1000);
       } else {
         toast.error("Order not saved");
@@ -134,37 +148,50 @@ function Makepayment() {
   const handleRazorpay = async () => {
     try {
       const data = JSON.parse(localStorage.getItem("cart")) || [];
-      const user = JSON.parse(localStorage.getItem("userstore")) || {};
+      const token = localStorage.getItem("token");
       const address = JSON.parse(localStorage.getItem("address")) || [];
 
-      // ✅ validation
+      const userRes = await axios.get(
+        "https://backend-lr7e.onrender.com/getuser",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+
       if (!address || address.length === 0) {
         toast.error("Delivery Address is not selected..!");
         navigate("/OrderReview");
         return;
       }
 
-      if (!user || !user._id) {
+      if (!userRes?.data || !userRes?.data?._id) {
         toast.error("User not logged in");
         return;
       }
 
-      // ✅ create order
+
       const res = await axios.post(
         "https://backend-lr7e.onrender.com/razorpayorder",
-        { products: data }
+        { products: data },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
       );
 
       const order = res.data;
 
-      // ✅ IMPORTANT check
+
       if (!order || !order.id) {
         console.log("Invalid order:", order);
         toast.error("Unable to create payment order");
         return;
       }
 
-      // ✅ Razorpay loaded check
+
       if (!window.Razorpay) {
         toast.error("Razorpay not loaded");
         return;
@@ -194,28 +221,33 @@ function Makepayment() {
                 razorpay_signature: response.razorpay_signature,
                 products: data,
                 users: [{
-                  _id: user._id,
-                  email: user.email,
-                  number: user.number
+                  _id: userRes?.data?._id,
+                  email: userRes?.data?.email,
+                  number: userRes?.data?.number
                 }],
                 deliveryaddress: address,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`
+                }
               }
             );
 
             console.log("Verify response:", verifyRes.data);
 
-            // ✅ strict check
+
             if (verifyRes?.data?.success === true) {
               toast.success("Payment Successful");
 
               localStorage.removeItem("cart");
-              localStorage.removeItem("paymentType"); // ✅ add this
+              localStorage.removeItem("paymentType");
 
               setTimeout(() => {
-                navigate("/");
+                navigate("/Useraccount");
               }, 1500);
             } else {
-              toast.error(verifyRes?.data?.error || "Payment verification failed"); // ✅ better error
+              toast.error(verifyRes?.data?.error || "Payment verification failed");
             }
 
           } catch (err) {
@@ -228,9 +260,9 @@ function Makepayment() {
         },
 
         prefill: {
-          name: user?.name || "Customer",
-          email: user?.email,
-          contact: user?.number,
+          name: userRes?.data?.name || "Customer",
+          email: userRes?.data?.email,
+          contact: userRes?.data?.number,
         },
 
         theme: {
@@ -240,7 +272,7 @@ function Makepayment() {
 
       const rzp = new window.Razorpay(options);
 
-      // ✅ proper failure handling
+
       rzp.on("payment.failed", function (response) {
         console.log("Payment failed:", response.error);
 

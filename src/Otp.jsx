@@ -49,35 +49,32 @@ function Otp({length=6,onotpSubmit=()=>{ },email}) {
     }
   }
 
-  const verifyOtp=async()=>{
-    const enteredOtp = otp.join("");
-    if(enteredOtp.length<length){
-      alert("Please enter complete OTP...")
-      return;
+  const verifyOtp = async () => {
+  const enteredOtp = otp.join("");
 
+  if (enteredOtp.length < length) {
+    alert("Please enter complete OTP...");
+    return;
+  }
+
+  try {
+    const res = await axios.post("https://backend-lr7e.onrender.com/verifyOTP", {
+      otp: enteredOtp,
+      email: email
+    });
+
+    setOtpmsg(res.data.message);
+
+    if (res.data.token) {
+      localStorage.setItem("token", res.data.token);
+      setOtp(new Array(length).fill(""));
+      navigate("/");
     }
-    try{
-      console.log("Email:", email);
-      console.log("OTP:", enteredOtp);
 
-      const res= await axios.post("https://backend-lr7e.onrender.com/verifyOTP",{
-        otp:otp.join(""),
-        email:email
-      });
-      
-      setOtpmsg(res.data.message);
-
-      if(res.data.message==="login sucessfullly.."){
-        setOtpmsg("");
-        navigate("/");
-      }
-
-
-    }
-    catch(err){
-      console.log(err);
-    }
-  };
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
   
