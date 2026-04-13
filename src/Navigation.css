@@ -500,12 +500,12 @@ a{
     margin-top: 0%;
 
 }
-.locationdiv:hover{
+/* .locationdiv:hover{
     background-color: rgba(128, 128, 128, 0.192);
     height: 50px;
     width: 200px;
     border-radius: 50px;
-}
+} */
 
 
 .topplaces {

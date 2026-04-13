@@ -25,6 +25,7 @@ import toast from "react-hot-toast"
 import pin from "./assets/locationnn.svg"
 import locationn from "./assets/locationn.svg"
 import bag from './assets/spbag.webp';
+import MapPicker from "./Mappicker"
 
 
 function Navigation() {
@@ -44,33 +45,33 @@ function Navigation() {
     const [cart, setCart] = useState([]);
     const [showpincode, setShowpincode] = useState(false);
     const [eemail, setEmail] = useState("");
-    const location=useLocation();
+    const location = useLocation();
     const [userData, setUserData] = useState(null);
     useEffect(() => {
-        const fetchData = async() => {
-            try{
-            const localdatas = JSON.parse(localStorage.getItem("cart")) || [];
-            if(localdatas.length===0){
-                setCart([]);
-                return;
-            }
-            const ids=localdatas.map(item=>item.productId);
-            const res=await axios.post("https://backend-lr7e.onrender.com/getproductbyId",{ids});
+        const fetchData = async () => {
+            try {
+                const localdatas = JSON.parse(localStorage.getItem("cart")) || [];
+                if (localdatas.length === 0) {
+                    setCart([]);
+                    return;
+                }
+                const ids = localdatas.map(item => item.productId);
+                const res = await axios.post("https://backend-lr7e.onrender.com/getproductbyId", { ids });
 
-            const updatedcart=res.data.map(product=>{
-                const cartItem=localdatas.find(c=>c.productId==product._id.toString());
-            
-            return{
-                ...product,
-                quantity: cartItem.quantity
+                const updatedcart = res.data.map(product => {
+                    const cartItem = localdatas.find(c => c.productId == product._id.toString());
+
+                    return {
+                        ...product,
+                        quantity: cartItem.quantity
+                    }
+                });
+                setCart(updatedcart);
             }
-            });
-            setCart(updatedcart);
-        }
-        catch(err){
-            console.log(err)
-        }
-            
+            catch (err) {
+                console.log(err)
+            }
+
 
         };
         fetchData();
@@ -123,50 +124,95 @@ function Navigation() {
         navigatee("/Cartdetails");
     }
 
-    
 
-   async function fetchData() {
-    try {
-        const token = localStorage.getItem("token");
 
-        if (!token) return;
+    async function fetchData() {
+        try {
+            const token = localStorage.getItem("token");
 
-        const res = await axios.get(
-            "https://backend-lr7e.onrender.com/getuser",
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
+            if (!token) return;
+
+            const res = await axios.get(
+                "https://backend-lr7e.onrender.com/getuser",
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
                 }
+            );
+
+            if (res.data) {
+                setUserData(res.data);
             }
-        );
 
-        if (res.data) {
-            setUserData(res.data);
+        } catch (err) {
+            console.log(err);
         }
-
-    } catch (err) {
-        console.log(err);
     }
-}
-useEffect(() => {
-    fetchData();
-}, []);
-    
-    
-    useEffect(()=>{
-        
-        if(location.state?.showToast){
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
+    useEffect(() => {
+
+        if (location.state?.showToast) {
             toast.success("product placed sucessfully...");
             navigatee(".", { replace: true, state: null });
-            
-        }
-    },[location,navigatee])
 
-    const handleAccount=()=>{
+        }
+    }, [location, navigatee])
+
+    const handleAccount = () => {
         navigatee("/Useraccount");
     }
-    
-   
+
+    const [mapLocation, setmapLocation] = useState(null);
+
+    const getAddress = async (lat, lng) => {
+        const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
+        );
+        const data = await res.json();
+        return data.display_name;
+    };
+
+    const handleSave = async (e) => {
+    e.preventDefault();
+
+    if (!mapLocation) {
+        alert("Please select location on map");
+        return;
+    }
+
+    const addr = await getAddress(mapLocation.lat, mapLocation.lng);
+    setAddress(addr);
+
+    localStorage.setItem("userAddress", addr);
+    localStorage.setItem("userLocation", JSON.stringify(mapLocation));
+
+    setshowLocaiton(false);
+
+    console.log("LatLng:", mapLocation);
+    console.log("Address:", addr);
+};
+    const [address, setAddress] = useState("");
+
+    // 👉 STEP 5 FUNCTION HERE
+
+
+    //   // 👉 When user clicks save
+    //   const handleSave = async () => {
+    //     if (!location) return alert("Select location first");
+
+    //     const addr = await getAddress(location.lat, location.lng);
+    //     setAddress(addr);
+
+    //     console.log("LatLng:", location);
+    //     console.log("Address:", addr);
+    //   }
+
+
 
 
     return (
@@ -176,10 +222,10 @@ useEffect(() => {
                 <div className="main">
                     <div className="navbarleft">
                         <Link to="/">
-                        <div className="jiologorajmart">
-                            <img src={bag} alt="jiomartlogo" className="logoleft" />
-                            <p className="jiologoname">RajMart</p>
-                        </div>
+                            <div className="jiologorajmart">
+                                <img src={bag} alt="jiomartlogo" className="logoleft" />
+                                <p className="jiologoname">RajMart</p>
+                            </div>
                         </Link>
 
                     </div>
@@ -241,27 +287,27 @@ useEffect(() => {
                                     )}
 
                                 </div>
-                                
 
-                                    
-                                    {userData ? (
-                                        
-                                        <span className="firstletter" onClick={handleAccount}>
-                                            {userData?.email?.charAt(0).toUpperCase() || "M"}
-                                        </span>
-                                        
-                                    ):(
+
+
+                                {userData ? (
+
+                                    <span className="firstletter" onClick={handleAccount}>
+                                        {userData?.email?.charAt(0).toUpperCase() || "M"}
+                                    </span>
+
+                                ) : (
                                     <Link to="/Signin">
                                         <div className="userlogo">
-                                        <img src={user} alt="user" className="user" />
-                                        <span className="intext">SignIn</span>
+                                            <img src={user} alt="user" className="user" />
+                                            <span className="intext">SignIn</span>
                                         </div>
                                     </Link>
-                                    )}
+                                )}
 
-                                
 
-                                <Link to="/Admin">                                    
+
+                                <Link to="/Admin">
                                     <span className="admin">Admin</span>
                                 </Link>
 
@@ -300,8 +346,16 @@ useEffect(() => {
                         </div>
                         <div className="locationdiv">
                             <img src={locationn} alt="pincode" className="locationimg" />
-                            <a href="/" className="atag">Direct My Location</a>
+                            <MapPicker setLocation={setmapLocation} />
+                            <button className="atag" onClick={handleSave}>
+                                Use This Location
+                            </button>
                         </div>
+                        {address && (
+                            <p>
+                                <b>Selected Address:</b> {address}
+                            </p>
+                        )}
                     </div>
                 </div>
             )}

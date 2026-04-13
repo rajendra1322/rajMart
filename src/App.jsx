@@ -42,15 +42,7 @@ const App = () => {
       <Route path="/Admin" element={<Admin />}></Route>
       <Route path="/AddItems" element={<AddItems />}></Route>
       <Route path="/Items" element={<Items />}></Route>
-      <Route path="/View/:id" element={<View />}></Route>
-
-
-      
-      
-    
-      
-     
-      
+      <Route path="/View/:id" element={<View />}></Route>      
     </Routes>
     <Card />
     <Offersection />

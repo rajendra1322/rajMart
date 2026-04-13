@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import './OrderReview.css';
-import jiomart from './assets/jiomartlogoo.png';
+import jiomart from './assets/spbag.webp';
 import pen from './assets/pen.svg';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
@@ -92,11 +92,17 @@ function OrderReview  ()  {
        setAddresstore(getaddress);
      },[])
      const savedaddrs=Array.isArray(addresstore)?addresstore:[addresstore];
+     const handlehome=()=>{
+        navigate("/");
+     }
   return (
     <>
     <div className='ordertop' onClick={()=>setAddress(false)} >
         <Toaster position='top-center '/>
+        <div className='rajmartlogoo' onClick={handlehome}>
         <img src={jiomart} alt="jiomartlogo"  className='orderimgtop'/>
+        <p className='rajmartname'>RajMart</p>
+        </div>
     </div>
     <div className='ordercontainertop'>
         <h2 className='orderh2'>order Review</h2>

@@ -16,6 +16,7 @@ import Makepayment from './Makepayment.jsx'
 import Adminhome from './Adminhome.jsx'
 import Orders from './Orders.jsx'
 import Useraccount from './Useraccount.jsx'
+import "leaflet/dist/leaflet.css";
 
 
 

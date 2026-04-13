@@ -1,0 +1,43 @@
+import React, { useState } from "react";
+import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
+import L from "leaflet";
+
+// Fix marker icon issue
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon-2x.png",
+  iconUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png",
+});
+
+const LocationMarker = ({ setLocation }) => {
+  const [position, setPosition] = useState(null);
+
+  useMapEvents({
+    click(e) {
+      const latlng = e.latlng;
+      setPosition(latlng);
+      setLocation(latlng);
+    },
+  });
+
+  return position === null ? null : <Marker position={position} />;
+};
+
+const MapPicker = ({ setLocation }) => {
+  return (
+    <MapContainer
+      center={[15.2993, 74.1240]}
+      zoom={10}
+      style={{ height: "400px", width: "100%" }}
+    >
+      <TileLayer
+        attribution="&copy; OpenStreetMap contributors"
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <LocationMarker setLocation={setLocation} />
+    </MapContainer>
+  );
+};
+
+export default MapPicker;
