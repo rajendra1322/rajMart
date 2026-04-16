@@ -30,7 +30,7 @@ function OrderReview  ()  {
             return;
         }
         const ids=res.map(item=>item.productId);
-        const datas=await axios.post("https://backend-lr7e.onrender.com/getproductbyId",{ids});
+        const datas=await axios.post("https://backend-fgbg.onrender.com/getproductbyId",{ids});
         const updateddata=datas.data.map(product=>{
             const cartitem=res.find(c=>c.productId==product._id.toString())
         return{

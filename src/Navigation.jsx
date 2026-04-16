@@ -56,7 +56,7 @@ function Navigation() {
                     return;
                 }
                 const ids = localdatas.map(item => item.productId);
-                const res = await axios.post("https://backend-lr7e.onrender.com/getproductbyId", { ids });
+                const res = await axios.post("https://backend-fgbg.onrender.com/getproductbyId", { ids });
 
                 const updatedcart = res.data.map(product => {
                     const cartItem = localdatas.find(c => c.productId == product._id.toString());
@@ -83,6 +83,7 @@ function Navigation() {
         return sum + (item.quantity * item.price);
     }, 0);
     const totalQuantity = cart.length;
+    const isVaild=cart.length>0;
     const toggleCart = () => {
         setShowcart((prev) => !prev);
         window.dispatchEvent(new Event("updatedCart"));
@@ -133,7 +134,7 @@ function Navigation() {
             if (!token) return;
 
             const res = await axios.get(
-                "https://backend-lr7e.onrender.com/getuser",
+                "https://backend-fgbg.onrender.com/getuser",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -198,19 +199,7 @@ function Navigation() {
 };
     const [address, setAddress] = useState("");
 
-    // 👉 STEP 5 FUNCTION HERE
-
-
-    //   // 👉 When user clicks save
-    //   const handleSave = async () => {
-    //     if (!location) return alert("Select location first");
-
-    //     const addr = await getAddress(location.lat, location.lng);
-    //     setAddress(addr);
-
-    //     console.log("LatLng:", location);
-    //     console.log("Address:", addr);
-    //   }
+    
 
 
 
@@ -280,7 +269,7 @@ function Navigation() {
 
 
                                                 </div>
-                                                <button className="addtobtn" onClick={handleCart}>Proceed to Cart</button>
+                                                <button className={`addtobtn ${isVaild ? "enabled" : ""}`} onClick={handleCart} disabled={!isVaild} >Proceed to Cart</button>
 
                                             </div>
                                         </div>

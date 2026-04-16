@@ -11,7 +11,7 @@ function Products () {
   
 
   useEffect(()=>{
-    axios.get("https://backend-lr7e.onrender.com/fetchProduct")
+    axios.get("https://backend-fgbg.onrender.com/fetchProduct")
     .then(res=>Setproduct(res.data))
     .catch(err=>console.log("api error",err));
     

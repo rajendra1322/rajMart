@@ -10,7 +10,7 @@ const [items,setItem]=useState([]);
 const [enable,setEnable]=useState(false);
 const[disablee,setDisablee]=useState(false);
   useEffect(()=>{
-  axios.get("https://backend-lr7e.onrender.com/fetchProduct")
+  axios.get("https://backend-fgbg.onrender.com/fetchProduct")
   .then(res=>setItem(res.data))
   
   .catch(err=>console.log(err))
@@ -19,7 +19,7 @@ const[disablee,setDisablee]=useState(false);
 
   const handleDelete=async(id)=>{
     try{
-      let res=await axios.delete(`https://backend-lr7e.onrender.com/deleteProduct/${id}`);
+      let res=await axios.delete(`https://backend-fgbg.onrender.com/deleteProduct/${id}`);
       if(res.data.message==="deleted succesfully"){
         setEnable(true);
         setDisablee(true);

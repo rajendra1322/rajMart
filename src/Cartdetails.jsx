@@ -17,7 +17,7 @@ function Cartdetails  () {
                 return;
             }
             const ids=cartdata.map(item=>item.productId);
-            const res=await axios.post("https://backend-lr7e.onrender.com/getproductbyId",{ids});
+            const res=await axios.post("https://backend-fgbg.onrender.com/getproductbyId",{ids});
 
             const updatedcart=res.data.map(product=>{
                 const cartitem=cartdata.find(c=>c.productId==product._id.toString());

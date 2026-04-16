@@ -58,7 +58,7 @@ function Otp({length=6,onotpSubmit=()=>{ },email}) {
   }
 
   try {
-    const res = await axios.post("https://backend-lr7e.onrender.com/verifyOTP", {
+    const res = await axios.post("https://backend-fgbg.onrender.com/verifyOTP", {
       otp: enteredOtp,
       email: email
     });

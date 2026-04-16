@@ -14,6 +14,8 @@ import Items from "./Items.jsx";
 import View from "./View.jsx";
 import Products from "./Products.jsx";
 import { Toaster } from "react-hot-toast";
+import Brand from "./Brand.jsx";
+
 
 
 const App = () => {
@@ -22,7 +24,7 @@ const App = () => {
   
 
   async function getData(){
-    let res=await axios.get(`https://backend-lr7e.onrender.com`);
+    let res=await axios.get(`https://backend-fgbg.onrender.com`);
     console.log(res);
     setdata(res.data);
     
@@ -48,6 +50,7 @@ const App = () => {
     <Offersection />
     <Card />
     <Products />
+    <Brand />
     
     
     

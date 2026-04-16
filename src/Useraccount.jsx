@@ -38,7 +38,7 @@ function Useraccount() {
         async function fetchdata() {
             const token = localStorage.getItem("token");
 
-            const res = await axios.get("https://backend-lr7e.onrender.com/myorders",
+            const res = await axios.get("https://backend-fgbg.onrender.com/myorders",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -59,7 +59,7 @@ function Useraccount() {
                 const token = localStorage.getItem("token");
 
                 const userRes = await axios.get(
-                    "https://backend-lr7e.onrender.com/getuser",
+                    "https://backend-fgbg.onrender.com/getuser",
                     {
                         headers: {
                             Authorization: `Bearer ${token}`

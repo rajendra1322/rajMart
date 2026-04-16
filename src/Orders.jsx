@@ -18,7 +18,7 @@ function Orders ()  {
 
     // },[])
     const fetchOrders = async () => {
-    const ress= await axios.get("https://backend-lr7e.onrender.com/status/orders");
+    const ress= await axios.get("https://backend-fgbg.onrender.com/status/orders");
     setOrders(ress.data);
     
   };
@@ -28,7 +28,7 @@ function Orders ()  {
   }, []);
 
   const updateStatus = async (id, status) => {
-    await axios.put(`https://backend-lr7e.onrender.com/status/${id}`, {
+    await axios.put(`https://backend-fgbg.onrender.com/status/${id}`, {
       status,
     });
     fetchOrders(); 

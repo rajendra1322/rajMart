@@ -15,7 +15,7 @@
 }
 .additemscontainer{
     width: auto;
-    height: auto;
+    height: 120%;
     border-radius: 20px;
     background-color: rgba(165, 177, 187, 0.096);
     position: relative;

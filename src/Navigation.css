@@ -277,10 +277,15 @@ body{
     margin-bottom: 20px;
     border: none;
     border-radius: 30px;
-    background-color: #0078AD;
+    background-color: #B2D6E6;
     color: white;
     font-weight: bolder;
     font-size: 20px;
+    cursor: not-allowed;
+}
+.addtobtn.enabled{
+    cursor: pointer;
+    background-color: #0078AD;
 }
 .addtobtn:hover{
   background-color: #0a4e73;

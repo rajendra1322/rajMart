@@ -20,7 +20,7 @@ function Items () {
       if(isEdit){
         const fetchData=async()=>{
         try{
-          const res=await axios.get(`https://backend-lr7e.onrender.com/product/${id}`);
+          const res=await axios.get(`https://backend-fgbg.onrender.com/product/${id}`);
           if(res.data){
           setName(res.data.name);
           setQuantity(res.data.quantity);
@@ -54,11 +54,11 @@ function Items () {
       try{
         let res;
         if(isEdit){
-          res=await axios.put(`https://backend-lr7e.onrender.com/updateItems/${id}`,form,{
+          res=await axios.put(`https://backend-fgbg.onrender.com/updateItems/${id}`,form,{
          headers: { "Content-Type": "multipart/form-data" }});
 
         }else{
-          res= await axios.post("https://backend-lr7e.onrender.com/addItems",form,{
+          res= await axios.post("https://backend-fgbg.onrender.com/addItems",form,{
   headers: { "Content-Type": "multipart/form-data" }});
 
         }
@@ -93,7 +93,11 @@ function Items () {
       "pants",
       "shirts",
       "sports",
-      "footwear"
+      "footwear",
+      "mouse",
+      "footwear",
+      "electronics",
+      "laptops"
 
     ]
     const onhandlerselect=(e)=>{

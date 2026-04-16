@@ -14,7 +14,7 @@ function View(){
       
       const fetchdata= async()=>{
       try{
-      const res= await axios.get(`https://backend-lr7e.onrender.com/product/${id}`);
+      const res= await axios.get(`https://backend-fgbg.onrender.com/product/${id}`);
       setProduct(res.data);
       }
       catch(err){

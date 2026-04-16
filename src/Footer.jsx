@@ -1,5 +1,5 @@
 import './Footer.css'
-import userlogo from './assets/jiomartlogo.png'
+import logo from './assets/spbag.webp'
 
 function Footer(){
     return (
@@ -58,9 +58,10 @@ function Footer(){
 
                 </div>
                 <div className="contactDetails">
-                    <h2>Contact Us</h2>
+                    <h2 className='contactheadding'>Contact Us</h2>
                     <p>Whatsapp us:534634663</p>
                     <p>Call us:9392948320</p>
+                    <p>8:00 AM to 8:00 PM, 365 days</p>
                     <p></p>
 
                 </div>
@@ -68,7 +69,7 @@ function Footer(){
             </div>
             <hr />
             <div className='copyright'>
-                <img src={userlogo} alt="userlogo" className='userlogo' />
+                <img src={logo} alt="userlogo" className='userlogo' width={300} />
                 <p>{String.fromCodePoint(0x00A9)} 2025 all rights reserved .Reliance  Retail Ltd.</p>
                 <p className='secondP'>Best viewed on Microsoft Edge 81+, Mozilla Firefox 75+, Safari 5.1.5+, Google Chrome 80+</p>
             </div>

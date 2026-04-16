@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useNavigate, useParams } from 'react-router'
 import './Productdetails.css'
 import {addtocart} from '../src/utility/cart.js'
+import toast,{ Toaster } from 'react-hot-toast'
 
 
 function Productdetails (){
@@ -15,7 +16,7 @@ function Productdetails (){
     useEffect(()=>{
     const fetchData=async()=>{
         try{
-            const res=await axios.get(`https://backend-lr7e.onrender.com/product/${id}`);
+            const res=await axios.get(`https://backend-fgbg.onrender.com/product/${id}`);
             setProduct(res.data);
 
 
@@ -29,8 +30,14 @@ function Productdetails (){
     if(!product){
         return <h2>loading...</h2>
     }
+    const usercount=localStorage.getItem("token");
     
     const handleAddtocart=async()=>{
+      if(!usercount){
+        toast.error("please login...");
+        
+      }
+      else{
       addtocart(product);
       
       setShowmsg(true);
@@ -40,13 +47,18 @@ function Productdetails (){
         setDisable(false);
         navigate("/");
       },3000)
+    }
       
     }
+
+    
+    
   return (
     
     <div>
         <Navigation />
       <div className='detailscontainer'>
+        <Toaster position='top-center' />
         <div className='detailsdivide'>
         <div className='detailsone'>
           <img src={product.image} alt={product.image}  className='detailsimage'/>

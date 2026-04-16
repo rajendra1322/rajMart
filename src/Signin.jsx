@@ -20,7 +20,7 @@ function Signin(props) {
         e.preventDefault();
 
         try{
-        const res= await axios.post("https://backend-lr7e.onrender.com/signin",{number,email});
+        const res= await axios.post("https://backend-fgbg.onrender.com/signin",{number,email});
         setMessage(res.data.message);
 
         if(res.data.message==="OTP sent successfully"){
