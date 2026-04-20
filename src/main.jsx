@@ -17,6 +17,9 @@ import Adminhome from './Adminhome.jsx'
 import Orders from './Orders.jsx'
 import Useraccount from './Useraccount.jsx'
 import "leaflet/dist/leaflet.css";
+import Dashboard from './Dashboard.jsx'
+import Userdetails from './Userdetails.jsx'
+
 
 
 
@@ -40,6 +43,8 @@ createRoot(document.getElementById('root')).render(
       <Route path='/Adminhome' element={<Adminhome />}></Route>
       <Route path='/Orders' element={<Orders />}></Route>
       <Route path='/Useraccount' element={<Useraccount />}></Route>
+      <Route path='/Dashboard' element={<Dashboard />}></Route>
+      <Route path='/Userdetails' element={<Userdetails />}></Route>
       <Route path='/*' element={<App/>}></Route>
     </Routes>
     </BrowserRouter>

@@ -1,0 +1,58 @@
+.adminleftuser{
+    display: flex;
+    flex-direction: row;
+}
+.userdetailsleft{
+    height: auto;
+    width: 300px ;
+    margin-right: 30px;
+}
+.userdetailsright{
+    height: auto;
+    width: auto;
+    margin-left: 60px;
+    
+}
+.userdetailsh1{
+    width: 900px;
+    margin-left: 500px;
+    color: blue;
+    margin-top: 30px;
+    text-shadow: 1px 1px 1px black;
+   
+   
+}
+.userdetailsgrid{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 20px;
+    gap: 10px;
+    
+}
+.userdetailsbox{
+    width: auto;
+    height: 140px;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    border: none;
+    text-align: left;
+    border-radius: 30px;
+    background-color: rgb(16, 120, 189);
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: transform 0.2s ease-in;
+    cursor: grab;
+    box-shadow: 1px 1px black;    
+
+}
+.userdetailsbox:hover{
+    transform: scale(1.01);
+    box-shadow: 0 4px 20px gray;
+}
+.userdetailsP{
+    color:white;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

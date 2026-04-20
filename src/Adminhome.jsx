@@ -20,13 +20,19 @@ function Adminhome  ()  {
     const handlelogout=()=>{
         navigate("/");
     }
+    const handledashboard=()=>{
+        navigate("/Dashboard")
+    }
+    const handleuser=()=>{
+        navigate("/Userdetails")
+    }
   return (
     <div>
     <div className='adminhomecontainer'>
         <div className='adminhomeleft'>
             <h3 className='adminlefth2'>Admin Home</h3>
             <div className='adminleftoptions'>
-                <div className='adminleftoptionone'>
+                <div className='adminleftoptionone' onClick={handledashboard}>
                     <img src={home} alt="homelogo" className='adminleftimg'/>
                     <p className='adminleftP'>Dashboard</p>
                 </div>
@@ -42,7 +48,7 @@ function Adminhome  ()  {
                     <img src={category} alt="homelogo" className='adminleftimg'/>
                     <p className='adminleftP'>Category</p>
                 </div>
-                <div className='adminleftoptionone'>
+                <div className='adminleftoptionone' onClick={handleuser}>
                     <img src={users} alt="homelogo" className='adminleftimg'/>
                     <p className='adminleftP'>Users</p>
                 </div>
@@ -51,7 +57,8 @@ function Adminhome  ()  {
                     <p className='adminleftP'>logout</p>
                 </div>
             </div>             
-            <div className='adminhomeright'></div>
+            <div className='adminhomeright'>
+            </div>
         </div>
       
     </div>

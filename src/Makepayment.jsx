@@ -29,7 +29,7 @@ function Makepayment() {
           return;
         }
         const ids = datas.map(item => item.productId);
-        const res = await axios.post("https://backend-lr7e.onrender.com/getproductbyId", { ids });
+        const res = await axios.post("https://backend-fgbg.onrender.com/getproductbyId", { ids });
 
         const updated = res.data.map(product => {
           const cartitem = datas.find(c => c.productId == product._id.toString());
@@ -73,7 +73,7 @@ function Makepayment() {
       const addressget = JSON.parse(localStorage.getItem("address")) || [];
 
       const userRes = await axios.get(
-        "https://backend-lr7e.onrender.com/getuser",
+        "https://backend-fgbg.onrender.com/getuser",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -108,7 +108,7 @@ function Makepayment() {
 
 
       const res = await axios.post(
-        "https://backend-lr7e.onrender.com/ordersave",
+        "https://backend-fgbg.onrender.com/ordersave",
         {
           products: data,
           paymentType: cod,
@@ -152,7 +152,7 @@ function Makepayment() {
       const address = JSON.parse(localStorage.getItem("address")) || [];
 
       const userRes = await axios.get(
-        "https://backend-lr7e.onrender.com/getuser",
+        "https://backend-fgbg.onrender.com/getuser",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -173,7 +173,7 @@ function Makepayment() {
 
 
       const res = await axios.post(
-        "https://backend-lr7e.onrender.com/razorpayorder",
+        "https://backend-fgbg.onrender.com/razorpayorder",
         { products: data },
         {
           headers: {
@@ -214,7 +214,7 @@ function Makepayment() {
             console.log("Payment response:", response);
 
             const verifyRes = await axios.post(
-              "https://backend-lr7e.onrender.com/verify-razorpay",
+              "https://backend-fgbg.onrender.com/verify-razorpay",
               {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,

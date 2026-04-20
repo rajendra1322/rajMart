@@ -1,0 +1,132 @@
+.dashboardmain{
+    display: flex;
+}
+.dashboardadminside{
+    width: 300px;
+    height:auto;
+    
+}
+.dashboardcontainer{
+    margin-top: 60px;
+    margin-left: 100px;
+    display: flex;
+    gap: 50px;
+
+}
+.dashboardusers{
+    width: 400px;
+    height: 200px;
+    background-color: rgba(250, 235, 215, 0.404);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.288);
+    border-radius: 5px;
+}
+
+.dashboarduserstop{
+    display: flex;
+}
+.dashboarduserlogo{
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.dashboarduserP{
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+.dashboardrevenuelogo{
+    width: 40px;
+    height: 40px;
+    background-color:green;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 30px;
+    margin-top: 20px;
+
+}
+.dashboardproductlogo{
+    width: 40px;
+    height: 40px;
+    background-color:rgb(255, 81, 0);
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 30px;
+    margin-top: 20px;
+
+}
+.dashboardtotal{
+    font-size: 35px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 90px;
+    margin-top: 20px;
+    color: black;
+}
+
+
+
+.charts {
+  margin-top: 300px;
+  margin-left: -1300px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+
+.chart-box {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: 300px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.chart-full {
+  grid-column: span 2;
+  height: 300px;
+}
+
+
+.chart-box h2 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+.chart-content {
+  flex: 1;
+  width: 300px;
+  height: 300px;
+}
+
+
+@media (max-width: 1024px) {
+  .charts {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-full {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .chart-box {
+    height: 300px;
+    padding: 15px;
+  }
+
+  .chart-box h2 {
+    font-size: 16px;
+  }
+}

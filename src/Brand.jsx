@@ -29,7 +29,7 @@ function Brand ()  {
 
     ]
 
-    console.log(brand);
+    
   return (
     <>
     <h2 className='brandnames'>Brands</h2>

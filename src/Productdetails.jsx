@@ -38,6 +38,7 @@ function Productdetails (){
         
       }
       else{
+        toast.success("Product added to cart.")
       addtocart(product);
       
       setShowmsg(true);
@@ -69,6 +70,7 @@ function Productdetails (){
         </div>
         <div className='detailstwo'>
           <h2 className='detailsname'>{product.name}</h2>
+          <p className='detailsdesp'>{product.description}</p>
          <p className='detailswarranty'>Warranty:1 year</p>
          <div className='priceset'>
          <p className='detailsprice'>₹{product.price}.00 </p>
