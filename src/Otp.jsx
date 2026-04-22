@@ -51,6 +51,7 @@ function Otp({length=6,onotpSubmit=()=>{ },email}) {
 
   const verifyOtp = async () => {
   const enteredOtp = otp.join("");
+  const isvalid=enteredOtp.length===6;
 
   if (enteredOtp.length < length) {
     alert("Please enter complete OTP...");
@@ -107,7 +108,7 @@ function Otp({length=6,onotpSubmit=()=>{ },email}) {
 
     
 
-        <button className='btnotp' onClick={verifyOtp}>Verify OTP</button>
+        <button className={`btnotp ${isvalid?"enabled":" "}`} onClick={verifyOtp}>Verify OTP</button>
 
       
     </div>

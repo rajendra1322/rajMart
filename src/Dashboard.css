@@ -19,6 +19,10 @@
     background-color: rgba(250, 235, 215, 0.404);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.288);
     border-radius: 5px;
+    transition: transform 1s ease-in-out;
+}
+.dashboardusers:hover{
+  transform: scale(1.05);
 }
 
 .dashboarduserstop{

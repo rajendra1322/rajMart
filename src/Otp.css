@@ -59,3 +59,7 @@
     border: none;
     transition: 0.3s;
 }
+.btnotp.enabled{
+    background-color:#0f4e69 ;
+
+}

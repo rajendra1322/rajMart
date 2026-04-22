@@ -14,6 +14,9 @@ import logout from './assets/logout.svg'
 import { flushSync } from 'react-dom';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router';
+import { useSearchParams } from "react-router-dom";
+
+
 
 
 
@@ -23,8 +26,10 @@ function Useraccount() {
     const [accountdtl, setAccountdtl] = useState(true);
     const [orders, setOrders] = useState([]);
     const [userdtl, setUserdtl] = useState(null);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const greater = ">";
+    const [searchParams] = useSearchParams();
+    const orderId = searchParams.get("orderId");
     const handledownarrow = (section) => {
         if (myaccountdown === section) {
             setMyaccountdown(null);
@@ -51,7 +56,7 @@ function Useraccount() {
         fetchdata();
     }, [])
 
-    
+
 
     useEffect(() => {
         async function fetchdata() {
@@ -93,16 +98,40 @@ function Useraccount() {
     }
 
     const handleLogout = () => {
-    if (window.confirm("Are you sure you want to logout?")) {
-        localStorage.clear();
+        if (window.confirm("Are you sure you want to logout?")) {
+            localStorage.clear();
 
-        toast.success("Logged out successfully");
+            toast.success("Logged out successfully");
 
-        setTimeout(() => {
-            navigate("/");
-        }, 1000);
-    }
-};
+            setTimeout(() => {
+                navigate("/");
+            }, 1000);
+        }
+    };
+    const [order, setOrder] = useState(null);
+
+    useEffect(() => {
+        if (!orderId) return;
+
+        const fetchOrder = async () => {
+            try {
+                const res = await axios.get(
+                    `https://https://backend-fgbg.onrender.com/api/orders/${orderId}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("token")}`
+                        }
+                    }
+                );
+
+                setOrder(res.data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchOrder();
+    }, [orderId]);
 
 
 
@@ -265,6 +294,23 @@ function Useraccount() {
 
                                                 )
                                             })}
+                                            {order && (
+                                                <div className="scannedOrder">
+                                                    <h2>Scanned Order</h2>
+
+                                                    <p>Status: {order.status}</p>
+                                                    <p>Total: ₹{order.totalamount}</p>
+
+                                                    {order.products.map((item) => (
+                                                        <div key={item.id}>
+                                                            <img src={item.image} width="80" />
+                                                            <p>{item.name}</p>
+                                                            <p>Qty: {item.quantity}</p>
+                                                            <p>₹ {item.price}</p>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
                                             <button className='myorderbtn'>cancel</button>
                                         </div>
 

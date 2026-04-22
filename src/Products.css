@@ -13,8 +13,12 @@
     background-color: white;
     border-radius: 30px;
     padding: 10px;
+    transition: transform 1s ease-in-out;
     
     
+}
+.products:hover{
+    transform: scale(1.05);
 }
 .imageproduct{
     width: 180px;
