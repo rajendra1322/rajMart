@@ -116,17 +116,12 @@ function Useraccount() {
         const fetchOrder = async () => {
             try {
                 const res = await axios.get(
-                    `https://https://backend-fgbg.onrender.com/api/orders/${orderId}`,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${localStorage.getItem("token")}`
-                        }
-                    }
+                    `https://backend-fgbg.onrender.com/public/order/${orderId}`
                 );
 
                 setOrder(res.data);
             } catch (err) {
-                console.log(err);
+                console.log("QR Fetch Error:", err);
             }
         };
 
@@ -263,62 +258,59 @@ function Useraccount() {
                         </div>
                     )}
                     <>
-                        {myorder == true && (
+                        {order ? (
+                            // ✅ QR Scanned Order
+                            <div className='myorderproducts'>
+                                <p className='myorderstatus'>Scanned Order</p>
+
+                                {order.products?.map((product) => (
+                                    <div className='myorderproddetails' key={product.id}>
+                                        <img src={product.image} className='myorderimage' />
+
+                                        <div>
+                                            <p>{product.name}</p>
+                                            <p>Qty: {product.quantity}</p>
+                                            <p>₹ {product.price}</p>
+                                        </div>
+                                    </div>
+                                ))}
+
+                                <p>Total: ₹ {order.totalamount}</p>
+                                <p>Status: {order.status}</p>
+                            </div>
+
+                        ) : myorder ? (
+                            // ✅ Normal Orders List
                             <div className='myorder'>
                                 <div className='myorderdivtop'>
                                     <p className='myordertop'>My Orders</p>
                                     <p className='myordertopone'>Refunds</p>
                                 </div>
-                                {orders.map((order) => {
-                                    return (
-                                        <div className='myorderproducts' key={order._id}>
-                                            <p className='myorderstatus'>{order.status}</p>
-                                            {order.products?.map((product) => {
-                                                return (
-                                                    <div className='myorderproddetails' key={product._id}>
-                                                        <div className='myorderposition'>
-                                                            <img src={product.image} alt="product images" className='myorderimage' />
 
-                                                        </div>
-                                                        <div className='myorderproone'>
-                                                            <p className='myorderone'>{product.category}</p>
-                                                            <p className='myordertwo'>{product.name}</p>
-                                                            <p className='myordertwo'>{product.quantity} Items</p>
-                                                            <p className='myorderthree'>₹ {order.totalamount}</p>
+                                {orders.map((order) => (
+                                    <div className='myorderproducts' key={order._id}>
+                                        <p className='myorderstatus'>{order.status}</p>
 
-                                                        </div>
-                                                        <div className='myorderright'>{greater}</div>
+                                        {order.products?.map((product) => (
+                                            <div className='myorderproddetails' key={product._id}>
+                                                <img src={product.image} className='myorderimage' />
 
-                                                    </div>
-
-
-                                                )
-                                            })}
-                                            {order && (
-                                                <div className="scannedOrder">
-                                                    <h2>Scanned Order</h2>
-
-                                                    <p>Status: {order.status}</p>
-                                                    <p>Total: ₹{order.totalamount}</p>
-
-                                                    {order.products.map((item) => (
-                                                        <div key={item.id}>
-                                                            <img src={item.image} width="80" />
-                                                            <p>{item.name}</p>
-                                                            <p>Qty: {item.quantity}</p>
-                                                            <p>₹ {item.price}</p>
-                                                        </div>
-                                                    ))}
+                                                <div className='myorderproone'>
+                                                    <p>{product.category}</p>
+                                                    <p>{product.name}</p>
+                                                    <p>{product.quantity} Items</p>
+                                                    <p>₹ {order.totalamount}</p>
                                                 </div>
-                                            )}
-                                            <button className='myorderbtn'>cancel</button>
-                                        </div>
+                                            </div>
+                                        ))}
 
-
-                                    )
-                                })}
+                                        <button className='myorderbtn'>cancel</button>
+                                    </div>
+                                ))}
                             </div>
-                        )}
+
+                        ) : null}
+
                     </>
 
 

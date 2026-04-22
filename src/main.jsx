@@ -43,6 +43,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/Adminhome' element={<Adminhome />}></Route>
       <Route path='/Orders' element={<Orders />}></Route>
       <Route path='/Useraccount' element={<Useraccount />}></Route>
+      <Route path="/order/:id" element={<OrderDetails />} />
       <Route path='/Dashboard' element={<Dashboard />}></Route>
       <Route path='/Userdetails' element={<Userdetails />}></Route>
       <Route path='/*' element={<App/>}></Route>
