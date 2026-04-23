@@ -116,7 +116,9 @@ function Useraccount() {
         const token = localStorage.getItem("token");
 
         if (!token) {
-            navigate(`/Signin?redirect=/Useraccount?orderId=${orderId}`);
+            navigate(
+                `/Signin?redirect=${encodeURIComponent(`/Useraccount?orderId=${orderId}`)}`
+            );
             return;
         }
 

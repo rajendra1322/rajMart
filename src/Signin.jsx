@@ -15,11 +15,12 @@ function Signin(props) {
     const isvalid = number.length === 10;
     const navigate = useNavigate();
 
+    
+
 
     const [searchParams] = useSearchParams();
-    const redirect = searchParams.get("redirect");
-
-
+    const redirect = decodeURIComponent(searchParams.get("redirect") || "");
+    console.log("Redirect URL:", redirect);
     const handleSubmit = async (e) => {
         e.preventDefault();
 
