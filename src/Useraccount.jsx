@@ -89,8 +89,8 @@ function Useraccount() {
 
 
     }
-    const address = JSON.parse(localStorage.getItem("address"));
-    const defaultaddress = address[0];
+    const address = JSON.parse(localStorage.getItem("address") || "[]");
+    const defaultaddress = address[0] || null;
 
     const handleinformationon = () => {
         setAccountdtl(true);
@@ -134,7 +134,7 @@ function Useraccount() {
         };
 
         fetchOrder();
-    }, [orderId]);
+    }, [orderId, navigate]);
 
 
 
@@ -249,7 +249,7 @@ function Useraccount() {
                                 <div className='usertwodetails'>
                                     <p className='usertwoname'>Default Address</p>
                                     {defaultaddress ? (
-                                        <p className='usertwovalue'> {defaultaddress.Rname},{defaultaddress.houseNumber},{" "}
+                                        <p className='usertwovalue'> {defaultaddress?.Rname},{defaultaddress.houseNumber},{" "}
                                             {defaultaddress.building},{defaultaddress.address},{" "}
                                             {defaultaddress.area}-{defaultaddress.pincode}.
                                         </p>
