@@ -113,12 +113,18 @@ function Useraccount() {
     useEffect(() => {
         if (!orderId) return;
 
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            navigate(`/Signin?redirect=/Useraccount?orderId=${orderId}`);
+            return;
+        }
+
         const fetchOrder = async () => {
             try {
                 const res = await axios.get(
                     `https://backend-fgbg.onrender.com/public/order/${orderId}`
                 );
-
                 setOrder(res.data);
             } catch (err) {
                 console.log("QR Fetch Error:", err);
