@@ -296,10 +296,10 @@ function Useraccount() {
                                                 <img src={product.image} className='myorderimage' />
 
                                                 <div className='myorderproone'>
-                                                    <p>{product.category}</p>
-                                                    <p>{product.name}</p>
-                                                    <p>{product.quantity} Items</p>
-                                                    <p>₹ {order.totalamount}</p>
+                                                    <p className='myorderone'> {product.category}</p>
+                                                    <p className='myordertwo'>{product.name}</p>
+                                                    <p className='myorderthree'>  {product.quantity} Items</p>
+                                                    <p className='myorderthree'>₹ {order.totalamount}</p>
                                                 </div>
                                             </div>
                                         ))}
