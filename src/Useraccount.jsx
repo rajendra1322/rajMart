@@ -233,7 +233,7 @@ function Useraccount() {
 
   {/* ================= QR SCANNED MODE ================= */}
   {order ? (
-    <div className="bg-white p-5 rounded-xl shadow">
+    <div className="bg-white p-5 rounded-xl shadow mt-[50px] ml-[20px]">
 
       <h2 className="text-lg font-semibold text-purple-600 mb-4">
         Scanned Order
