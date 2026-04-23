@@ -229,102 +229,122 @@ function Useraccount() {
 
 
 
-                <div className='useraccountbtwo'>
-                    {accountdtl && (
-                        <div>
-                            <h2 className='useraccounttwoh2'>Account Information</h2>
-                            <div className='usertwobox'>
-                                <div className='usertwodetails'>
-                                    <p className='usertwoname'>Full Name</p>
-                                    <p className='usertwovalue'>{defaultaddress?.Rname}</p>
-                                </div>
-                                <div className='usertwodetails'>
-                                    <p className='usertwoname'>Email ID</p>
-                                    <p className='usertwovalue'>{userdtl?.email}</p>
-                                </div>
-                                <div className='usertwodetails'>
-                                    <p className='usertwoname'>Mobile No.</p>
-                                    <p className='usertwovalue'>{userdtl?.number}</p>
-                                </div>
-                                <div className='usertwodetails'>
-                                    <p className='usertwoname'>Default Address</p>
-                                    {defaultaddress ? (
-                                        <p className='usertwovalue'> {defaultaddress?.Rname},{defaultaddress.houseNumber},{" "}
-                                            {defaultaddress.building},{defaultaddress.address},{" "}
-                                            {defaultaddress.area}-{defaultaddress.pincode}.
-                                        </p>
-                                    ) : (
-                                        <p>no address </p>
-                                    )}
-                                </div>
+                <div className="useraccountbtwo w-2/3">
 
+  {/* ================= QR SCANNED MODE ================= */}
+  {order ? (
+    <div className="bg-white p-5 rounded-xl shadow">
 
+      <h2 className="text-lg font-semibold text-purple-600 mb-4">
+        Scanned Order
+      </h2>
 
-                                <button className='btnedit'>Edit</button>
-                            </div>
+      {order.products?.map((product) => (
+        <div key={product.id} className="flex gap-4 items-center border-b py-3">
 
-                        </div>
-                    )}
-                    <>
-                        {order ? (
-                            // ✅ QR Scanned Order
-                            <div className='myorderproducts'>
-                                <p className='myorderstatus'>Scanned Order</p>
+          <img
+            src={product.image}
+            className="w-16 h-16 rounded object-cover"
+          />
 
-                                {order.products?.map((product) => (
-                                    <div className='myorderproddetails' key={product.id}>
-                                        <img src={product.image} className='myorderimage' />
+          <div>
+            <p className="font-medium">{product.name}</p>
+            <p className="text-sm text-gray-500">
+              Qty: {product.quantity}
+            </p>
+            <p className="text-sm font-semibold">
+              ₹{product.price}
+            </p>
+          </div>
 
-                                        <div>
-                                            <p>{product.name}</p>
-                                            <p>Qty: {product.quantity}</p>
-                                            <p>₹ {product.price}</p>
-                                        </div>
-                                    </div>
-                                ))}
+        </div>
+      ))}
 
-                                <p>Total: ₹ {order.totalamount}</p>
-                                <p>Status: {order.status}</p>
-                            </div>
+      <div className="mt-4 font-bold">
+        Total: ₹{order.totalamount}
+      </div>
 
-                        ) : myorder ? (
-                            // ✅ Normal Orders List
-                            <div className='myorder'>
-                                <div className='myorderdivtop'>
-                                    <p className='myordertop'>My Orders</p>
-                                    <p className='myordertopone'>Refunds</p>
-                                </div>
+      <p className="text-gray-600">
+        Status: {order.status}
+      </p>
 
-                                {orders.map((order) => (
-                                    <div className='myorderproducts' key={order._id}>
-                                        <p className='myorderstatus'>{order.status}</p>
+    </div>
+  ) : (
+    <>
+      {/* ================= NORMAL MODE ================= */}
 
-                                        {order.products?.map((product) => (
-                                            <div className='myorderproddetails' key={product._id}>
-                                                <img src={product.image} className='myorderimage' />
+      {/* ACCOUNT INFORMATION */}
+      {accountdtl && (
+        <div className="bg-white p-5 rounded-xl shadow mb-6">
 
-                                                <div className='myorderproone'>
-                                                    <p className='myorderone'> {product.category}</p>
-                                                    <p className='myordertwo'>{product.name}</p>
-                                                    <p className='myorderthree'>  {product.quantity} Items</p>
-                                                    <p className='myorderthree'>₹ {order.totalamount}</p>
-                                                </div>
-                                            </div>
-                                        ))}
+          <h2 className="text-lg font-semibold mb-4">
+            Account Information
+          </h2>
 
-                                        <button className='myorderbtn'>cancel</button>
-                                    </div>
-                                ))}
-                            </div>
+          <p>Full Name: {defaultaddress?.Rname}</p>
+          <p>Email ID: {userdtl?.email}</p>
+          <p>Mobile No: {userdtl?.number}</p>
 
-                        ) : null}
+          <p className="mt-2">
+            Address:{" "}
+            {defaultaddress
+              ? `${defaultaddress.Rname}, ${defaultaddress.houseNumber}, ${defaultaddress.building}, ${defaultaddress.address}, ${defaultaddress.area} - ${defaultaddress.pincode}`
+              : "No address"}
+          </p>
 
-                    </>
+          <button className="mt-3 bg-blue-600 text-white px-4 py-2 rounded">
+            Edit
+          </button>
 
+        </div>
+      )}
 
+      {/* NORMAL ORDERS */}
+      {myorder && (
+        <div className="space-y-4">
+
+          {orders.map((order) => (
+            <div key={order._id} className="bg-white p-4 rounded-xl shadow">
+
+              <p className="text-green-600 font-medium">
+                {order.status}
+              </p>
+
+              {order.products?.map((product) => (
+                <div key={product._id} className="flex gap-4 mt-3">
+
+                  <img
+                    src={product.image}
+                    className="w-14 h-14 rounded"
+                  />
+
+                  <div>
+                    <p className="font-medium">{product.name}</p>
+                    <p className="text-sm text-gray-500">
+                      {product.quantity} items
+                    </p>
+                    <p className="font-semibold">
+                      ₹{order.totalamount}
+                    </p>
+                  </div>
 
                 </div>
+              ))}
 
+              <button className="mt-3 text-red-500 text-sm">
+                Cancel
+              </button>
+
+            </div>
+          ))}
+
+        </div>
+      )}
+
+    </>
+  )}
+
+</div>
             </div>
         </div>
     )
