@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import './Items.css'
 import axios from 'axios';
 import {  useNavigate, useParams } from 'react-router';
+import Adminhome from './Adminhome';
+import toast, { Toaster } from 'react-hot-toast';
+
+
 
 
 
@@ -70,8 +73,10 @@ function Items () {
           setPrice("");
           setImage(null)
           setCategory("");
+          toast.success(res.data.message);
           setTimeout(() => {
             navigate("/AddItems");
+            
       }, 3000);
           
         }
@@ -107,42 +112,123 @@ function Items () {
     
     
   return (
-    <div className='itemsmain'>
-    <div className='itemscontainer'>
-        <h2 className='additems'>{isEdit? "update Items" :"Add Items"}</h2>
-        <form  onSubmit={handleSubmit}>
-        <div className='input'>
-            <label htmlFor="name">Product Name</label>
-            <input type="text" className='pname' value={name} onChange={(e)=>setName(e.target.value)} />
-            <label htmlFor="quantity">Quantity</label>
-            <input type="number" className='quantity' value={quantity} onChange={(e)=>setQuantity(e.target.value)}/>
-            <label htmlFor="price">Price</label>
-            <input type="text" className='prize' value={price} onChange={(e)=>setPrice(e.target.value)}/>
-            <label htmlFor="url"></label>
-            <input type="file" className='imageurl' onChange={(e)=>setImage(e.target.files[0])}/>
-            <label htmlFor="Category">Category</label>
-            <select className='selectoption' onChange={onhandlerselect} value={category}>
-              <option>select the category</option>
-              {options.map((option,index)=>{
-              return(
-                <option key={index} >
-                  {option}
-                  </option>
-              );
-              })}
-            </select>
-
-          
-
-            
-        </div>
-        {message && <p className='messagepopup'>{message}</p>}
-        <button className='btnadd' type='submit'>{isEdit?"Update":"Add"}</button>
-        </form>
-      
-    </div>
     
+    <div className="flex min-h-screen bg-gray-50">
+      
+
+  
+  <Adminhome />
+  <Toaster position='top-center' />
+  {/* <button
+        onClick={() => navigate(-1)}
+        className="text-gray-600 hover:text-blue-600 transition hover:scale-110   ml-10 "
+      >
+        ←Back
+      </button> */}
+
+  
+  <div className="flex-1 flex items-center justify-center p-6">
+    
+
+    
+    <div className="w-[530px] ml-[400px]  max-w-xl bg-white border border-gray-100 shadow-2xl rounded-2xl p-8">
+
+      
+      <h2 className="text-[30px] ml-[-10px]  mt-[-10px] font-bold text-gray-800 mb-8 text-center ">
+        {isEdit ? "Update Item" : "Add Item"}
+      </h2>
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+
+        
+        <div>
+          <label className="text-sm text-gray-600">Product Name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter product name"
+            className="w-full mt-1 px-4 py-2 border border-gray-200 rounded-xl
+                       focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          />
+        </div>
+
+       
+        <div>
+          <label className="text-sm text-gray-600">Quantity</label>
+          <input
+            type="number"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            placeholder="Enter quantity"
+            className="w-full mt-1 px-4 py-2 border border-gray-200 rounded-xl
+                       focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          />
+        </div>
+
+        
+        <div>
+          <label className="text-sm text-gray-600">Price</label>
+          <input
+            type="text"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            placeholder="Enter price"
+            className="w-full mt-1 px-4 py-2 border border-gray-200 rounded-xl
+                       focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          />
+        </div>
+
+        
+        <div>
+          <label className="text-sm text-gray-600">Product Image</label>
+          <input
+            type="file"
+            onChange={(e) => setImage(e.target.files[0])}
+            className="w-full mt-1 text-sm border border-gray-200 rounded-xl p-0
+                       file:mr-4 file:py-2 file:px-4
+                       file:rounded-lg file:border-0
+                       file:bg-blue-50 file:text-blue-600
+                       hover:file:bg-blue-100"
+          />
+        </div>
+
+        
+        <div>
+          <label className="text-sm text-gray-600">Category</label>
+          <select
+            value={category}
+            onChange={onhandlerselect}
+            className="w-full mt-1 px-4 mb-8 py-2 border border-gray-200 rounded-xl
+                       focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          >
+            <option value="">Select category</option>
+            {options.map((option, index) => (
+              <option key={index}>{option}</option>
+            ))}
+          </select>
+        </div>
+
+       
+        {message && (
+          <div className="bg-blue-50 text-blue-600 text-sm px-4 py-2 rounded-xl text-center">
+            {message}
+          </div>
+        )}
+
+        
+        <button
+          type="submit"
+          className="w-full  bg-blue-600 hover:bg-blue-900  hover:scale-105  text-white font-semibold py-2 rounded-xl shadow-md transition"
+        >
+          {isEdit ? "Update Item" : "Add Item"}
+        </button>
+
+      </form>
     </div>
+
+  </div>
+</div>
   )
 }
 

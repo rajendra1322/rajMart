@@ -48,10 +48,18 @@
 .cartproduct{
     border: 1px solid rgba(0, 0, 0, 0.39);
     border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.288);
+    border:none;
     margin-top: 20px;
     padding-left: 10px;
     padding-top: 10px;
-    height: 100%;
+    padding-bottom: 15px;
+    height: auto;
+    transition: transform 1s ease-in-out;
+}
+.cartproduct:hover{
+    transform: scale(1.02);
+
 }
 .deliverydate{
     color:rgba(0, 128, 0, 0.74) ;
@@ -177,7 +185,7 @@
 }
 .paymentdiv{
     width: 400px;
-    height: 100%;
+    height: 355px;
     border: 1px solid rgba(0, 0, 0, 0.432);
     border-radius: 20px;
     padding: 10px;
@@ -192,7 +200,7 @@
     margin-top: 10px;
 }
 .paymenth2{
-    margin-top: -15px;
+    margin-top: 15px;
     margin-left: 10px;
     font-size: 20px;
     font-weight:bolder;
@@ -218,12 +226,13 @@
 .paysaved{
     color: #00B258;
     margin-left: 230px;
-    margin-top: -13px;
+    margin-top: 13px;
+    margin-bottom: 10px;
     font-weight: bolder;
 }
 .applycoupon{
     border: 1px solid rgba(0, 0, 0, 0.5);
-    margin-top: 20px;
+    margin-top: 10px;
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -243,7 +252,7 @@
     color: black;
 }
 .greater{
-    margin-left: 80px;
+    margin-left: 180px;
     font-weight: bold;
     font-size: larger;
     color: blue;
@@ -253,7 +262,7 @@
     padding: 10px;
     background-color:#EFE7EF;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 5px;
     color: #000000A6;
     font: 17px jioType;
 }
@@ -266,7 +275,7 @@
     color: white;
     font-size: larger;
     font-weight: bold;
-    margin-top: 50px;
+    margin-top: 10px;
     cursor: pointer;
 }
 .btnplace:hover{

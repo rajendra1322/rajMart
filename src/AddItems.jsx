@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import "./AddItems.css"
+// import "./AddItems.css"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
@@ -41,51 +41,89 @@ const[disablee,setDisablee]=useState(false);
   }
   
   return (
-    <div className='addsimple'>
-      <Adminhome />
-    <div className='mainadd'>
-        <div className='additemscontainer'>
-      <h2 className='add'>Add the items</h2>
-      <Link to="/Items">
-      <button className='addbtn'>Add+</button>
-      </Link>
-        <table className='productTable'>
-          <thead>
-          <tr>
-            <th >products</th>
-            <th>View</th>
-            <th>Delete</th>
-          </tr>
-          </thead>
-          <tbody>
-          {items.map( (item) => {
-            return(
-          <tr key={item._id}>
-            <td>{item.name}</td>
-            <td className='action'>
-            <Link to={`/View/${item._id}`}>
-            <button className='viewbtn'>View</button>
-            </Link>
-            </td>
-            <td><button className='deltebtn' onClick={()=>handleDelete(item._id)} disabled={disablee}>Delete</button></td>
-          
-          </tr>
-          
-            )
-            
-          })}
-          </tbody>
-        </table>
+  
+    <div className="flex min-h-screen bg-gray-50">
 
-        {enable && (<div className='deletedmessage'>
-          <p className='delmsg'>❌deleted succesfully..</p>
-        </div>
-        )}
+  
+  <Adminhome />
+
+  
+  <div className="flex-1 p-8">
+
+    
+    <div className="flex items-center justify-between mb-6">
+      <h2 className="text-[30px]  font-bold text-gray-800 ml-48 ">
+        Products Management
+      </h2>
+
+      <Link to="/Items">
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl shadow-xl  transition hover:scale-105 mt-11  mr-5">
+          + Add Item
+        </button>
+      </Link>
+    </div>
+
+    
+    <div className="bg-white ml-[200px] rounded-2xl shadow-xl border border-gray-300 overflow-hidden">
+
+      <table className="w-[1000px] text-left">
+
         
+        <thead className="bg-gray-100 text-gray-600 text-sm uppercase">
+          <tr>
+            <th className="p-4">Product Name</th>
+            <th className="p-4">View</th>
+            <th className="p-4">Delete</th>
+          </tr>
+        </thead>
+
         
+        <tbody>
+
+          {items.map((item) => (
+            <tr
+              key={item._id}
+              className="border-b hover:bg-gray-50 transition"
+            >
+              <td className="p-4 font-medium text-gray-700">
+                {item.name}
+              </td>
+
+              <td className="p-4">
+                <Link to={`/View/${item._id}`}>
+                  <button className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition">
+                    View
+                  </button>
+                </Link>
+              </td>
+
+              <td className="p-4">
+                <button
+                  onClick={() => handleDelete(item._id)}
+                  disabled={disablee}
+                  className="px-4 py-2 bg-red-500 hover:bg-red-600 disabled:bg-gray-300 text-white rounded-lg transition"
+                >
+                  Delete
+                </button>
+              </td>
+
+            </tr>
+          ))}
+
+        </tbody>
+      </table>
+
+    </div>
+
+    
+    {enable && (
+      <div className="fixed top-6 left-1/2 -translate-x-1/2 bg-white shadow-lg border border-red-200 text-red-500 px-6 py-3 rounded-xl animate-bounce">
+        ❌ Deleted successfully
       </div>
-    </div>
-    </div>
+    )}
+
+  </div>
+</div>
   )
 }
 

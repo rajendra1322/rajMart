@@ -88,34 +88,78 @@ function Otp({ length = 6, onotpSubmit = () => { }, email, redirect }) {
 
 
   return (
-    <div className='otpcontainer'>
-      <img src={leftexit} alt="exit from otp" className='leftexit' onClick={() => navigate("/Signin")} />
-      <h2 className='headding'>Verify OTP</h2>
-      <p className='otp'>Enter the OTP sent to  {email} </p>
-      <p className='update'>Update Number</p>
-      {otp.map((value, index) => {
-        return (<input type="text"
+   <div className="min-h-screen  w-[1900px] flex items-center justify-center bg-white  ml-[-22px] mt-[-22px]">
+
+  <div className="w-[400px] max-w-md bg-white rounded-2xl shadow-xl p-6 relative">
+
+    {/* Back Button */}
+    <img
+      src={leftexit}
+      alt="back"
+      onClick={() => navigate(-1)}
+      className="w-6 h-6 cursor-pointer absolute top-5 left-5 opacity-70 hover:opacity-100"
+    />
+
+    {/* Heading */}
+    <h2 className="text-2xl font-bold text-center text-gray-800 mt-4">
+      Verify OTP
+    </h2>
+
+    <p className="text-center text-gray-500 mt-2">
+      Enter the OTP sent to
+    </p>
+
+    <p className="text-center text-blue-600 font-medium break-all">
+      {email}
+    </p>
+
+    {/* Update */}
+    <p
+      className="text-center text-sm text-blue-600 mt-2 cursor-pointer hover:underline"
+      onClick={() => navigate("/Signin")}
+    >
+      Update Number
+    </p>
+
+    {/* OTP Inputs */}
+    <div className="flex justify-center gap-3 mt-8">
+      {otp.map((value, index) => (
+        <input
           key={index}
-          className='otpinput'
+          type="text"
           value={value}
           ref={(input) => (inputRefs.current[index] = input)}
           onChange={(e) => handleChange(index, e)}
           onClick={() => handleClick(index)}
-          onKeyDown={(e) => handlekeydown(index, e)} />
-
-        );
-      })
-      }
-      {otpmsg && <p className='otpmsg'>{otpmsg}</p>}
-
-
-
-
-
-      <button className="btnotp" onClick={verifyOtp}>Verify OTP</button>
-
-
+          onKeyDown={(e) => handlekeydown(index, e)}
+          maxLength={1}
+          className="
+            w-12 h-12 text-center text-lg font-bold
+            border-b-2 border-gray-400
+            focus:border-blue-500 outline-none
+            transition-all duration-200
+          "
+        />
+      ))}
     </div>
+
+    {/* Error */}
+    {otpmsg && (
+      <p className="text-red-500 text-sm text-center mt-4">
+        {otpmsg}
+      </p>
+    )}
+
+    {/* Button */}
+    <button
+      onClick={verifyOtp}
+      className="w-full mt-8 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+    >
+      Verify OTP
+    </button>
+
+  </div>
+</div>
   );
 }
 export default Otp

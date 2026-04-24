@@ -103,15 +103,23 @@
 
 }
 .productsorder{
-    height: 200px;
+    height: auto;
     width: auto;
     border: 1px solid black;
+    border:none;
     border-radius: 20px;
     padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     margin: 10px;
+    transition: transform 1s ease-in-out;
+    box-shadow: 0 4px 12px rgba(175, 138, 138, 0.445);
+    
 }
+.productsorder:hover{
+    transform: scale(1.02);
+}
+
 .deliverymsg{
     color: green;
 }
@@ -130,6 +138,9 @@
 .ordersimg{
     margin-top: 10px;
     margin-bottom: 20px;
+    width: 150px;
+    height: 150px;
+    box-shadow:2px 0 3px rgba(128, 128, 128, 0.438);
 }
 .secretdetails{
     display: flex;
@@ -159,12 +170,13 @@
 .secondone{
     height: 50px;
     width: 50px;
-    padding-top: 5px;
+    padding-top: 0px;
     padding-left: 8px;
     border: 1px solid green;
     border-radius: 50%;
     color: green;
     font-size: 40px;
+    margin-bottom: 5px;
 }
 .secondtwo{
     height: 50px;
@@ -176,6 +188,7 @@
     border-radius: 50%;
     background-color: green;
     font-size: 20px;
+    margin-bottom: 5px;
     
 }
 .secondthree{
@@ -183,6 +196,7 @@
     width: 50px;
     padding-top: 12px;
      padding-left: 18px;
+     margin-bottom: 5px;
      
     border: 1px solid rgba(0, 128, 0, 0.466);
     border-radius: 50%;

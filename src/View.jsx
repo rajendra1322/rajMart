@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import './View.css'
-import left from "./assets/left.svg"
 import { useNavigate, useParams } from 'react-router'
 import axios from 'axios';
+import Adminhome from './Adminhome';
 
 
 function View(){
@@ -31,23 +30,91 @@ function View(){
 
 
   return (
-    <div className='viewcontainer'>
-    <div className='container'>
-      <img src={left} alt="left arrow" className='leftimage' onClick={()=>navigate(-1)}/>
+    // <div className='viewcontainer'>
+    // <div className='container'>
+    //   <img src={left} alt="left arrow" className='leftimage' onClick={()=>navigate(-1)}/>
       
-      <button className='editbtn' onClick={()=>navigate(`/Items/${id}`)}>Edit</button>
+    //   <button className='editbtn' onClick={()=>navigate(`/Items/${id}`)}>Edit</button>
       
-      <h1 className='view'>Product Details</h1>
-      <img src={product.image} alt={product.name}  className='imageView'/>
-      <p className='nameP'><strong>Name:</strong>{product.name}</p>
-      <p className='quanP'><strong>Quantity:</strong>{product.quantity}</p>
-      <p className='priceP'><strong>Price:</strong>{product.price}</p>
-      <p className='priceP'><strong>Category:</strong>{product.category}</p>
+    //   <h1 className='view'>Product Details</h1>
+    //   <img src={product.image} alt={product.name}  className='imageView'/>
+    //   <p className='nameP'><strong>Name:</strong>{product.name}</p>
+    //   <p className='quanP'><strong>Quantity:</strong>{product.quantity}</p>
+    //   <p className='priceP'><strong>Price:</strong>{product.price}</p>
+    //   <p className='priceP'><strong>Category:</strong>{product.category}</p>
       
 
 
+    // </div>
+    // </div>
+    <div className="flex min-h-screen bg-gray-50">
+
+  <Adminhome />
+
+  <div className="flex-1 p-8">
+    <button
+        onClick={() => navigate(-1)}
+        className="text-gray-600 hover:text-blue-600 transition hover:scale-105"
+      >
+        ←Back
+      </button>
+
+    <div className="flex items-center justify-between mt-[100px] w-[500px] ml-[420px] ">
+
+      
+
+      <h1 className="text-[30px] font-bold text-gray-800">
+        Product Details
+      </h1>
+
+      <button
+        onClick={() => navigate(`/Items/${id}`)}
+        className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 hover:scale-105 rounded-xl"
+      >
+        Edit
+      </button>
+
     </div>
+
+    <div className="bg-white border border-gray-100 shadow-2xl rounded-2xl p-6 max-w-3xl mx-auto w-[530px] h-[600px] mt-1 ml-[400px]">
+
+      <div className="flex justify-center mb-6">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-[400px] h-[250px] object-cover rounded-xl mb-10 shadow-xl hover:scale-105"
+        />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div className="p-4 bg-gray-100 rounded-xl hover:scale-105">
+          <p className="text-sm text-gray-500">Name</p>
+          <p className="text-lg font-semibold">{product.name}</p>
+        </div>
+
+        <div className="p-4 bg-gray-100 rounded-xl hover:scale-105">
+          <p className="text-sm text-gray-500">Quantity</p>
+          <p className="text-lg font-semibold">{product.quantity}</p>
+        </div>
+
+        <div className="p-4 bg-gray-100 rounded-xl hover:scale-105">
+          <p className="text-sm text-gray-500">Price</p>
+          <p className="text-lg font-semibold">₹ {product.price}</p>
+        </div>
+
+        <div className="p-4 bg-gray-100 rounded-xl hover:scale-105">
+          <p className="text-sm text-gray-500">Category</p>
+          <p className="text-lg font-semibold">{product.category}</p>
+        </div>
+
+      </div>
+
     </div>
+
+  </div>
+
+</div>
   )
 }
 

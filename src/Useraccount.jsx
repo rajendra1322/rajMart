@@ -233,9 +233,9 @@ function Useraccount() {
 
   {/* ================= QR SCANNED MODE ================= */}
   {order ? (
-    <div className=" p-5 rounded-xl shadow mt-[100px] ml-[20px] border-[black] border-[1px] border-[soild]">
+    <div className=" p-5 rounded-xl shadow mt-[100px] ml-[20px] border-[#00000050] border-[1px] border-[soild]">
 
-      <h2 className="text-lg font-semibold text-purple-600 mb-4 mr-[30px]">
+      <h2 className="text-lg font-semibold text-purple-600 mb-4 ">
         Scanned Order
       </h2>
 
@@ -275,27 +275,24 @@ function Useraccount() {
 
       {/* ACCOUNT INFORMATION */}
       {accountdtl && (
-        <div className="bg-white p-5 rounded-xl shadow mb-6">
+        <div className=" p-5 rounded-xl shadow mb-6 mt-[100px] border-[#00000041] border-[1px] border-[soild] ml-[30px]">
 
-          <h2 className="text-lg font-semibold mb-4">
+          <h2 className="text-lg font-semibold mb-5 mt-[-10px] ml-[-10px] underline">
             Account Information
           </h2>
 
-          <p>Full Name: {defaultaddress?.Rname}</p>
-          <p>Email ID: {userdtl?.email}</p>
-          <p>Mobile No: {userdtl?.number}</p>
+          <p className='text-[black]'><strong>Full Name:</strong> {defaultaddress?.Rname}</p>
+          <p className='text-[black]'><strong>Email ID:</strong> {userdtl?.email}</p>
+          <p className='text-[black]'><strong>Mobile No:</strong> {userdtl?.number}</p>
 
-          <p className="mt-2">
-            Address:{" "}
+          <p className="mt-2 text-black">
+            <strong>Address:</strong>{" "}
             {defaultaddress
               ? `${defaultaddress.Rname}, ${defaultaddress.houseNumber}, ${defaultaddress.building}, ${defaultaddress.address}, ${defaultaddress.area} - ${defaultaddress.pincode}`
               : "No address"}
           </p>
 
-          <button className="mt-3 bg-blue-600 text-white px-4 py-2 rounded">
-            Edit
-          </button>
-
+          
         </div>
       )}
 
@@ -304,7 +301,7 @@ function Useraccount() {
         <div className="space-y-4">
 
           {orders.map((order) => (
-            <div key={order._id} className="bg-white p-4 rounded-xl shadow">
+            <div key={order._id} className=" border-[#00000048] border-[1px]  p-4 rounded-xl shadow mt-[100px] ml-[30px]">
 
               <p className="text-green-600 font-medium">
                 {order.status}
@@ -318,7 +315,7 @@ function Useraccount() {
                     className="w-14 h-14 rounded"
                   />
 
-                  <div>
+                  <div className='ml-8'>
                     <p className="font-medium">{product.name}</p>
                     <p className="text-sm text-gray-500">
                       {product.quantity} items
@@ -331,7 +328,7 @@ function Useraccount() {
                 </div>
               ))}
 
-              <button className="mt-3 text-red-500 text-sm">
+              <button className="mt-3 ml-[600px] text-red-500 text-sm hover:underline">
                 Cancel
               </button>
 

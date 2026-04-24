@@ -19,6 +19,8 @@ import Useraccount from './Useraccount.jsx'
 import "leaflet/dist/leaflet.css";
 import Dashboard from './Dashboard.jsx'
 import Userdetails from './Userdetails.jsx'
+import AdminProtectedRoute from './AdminProtectedRoute.jsx'
+
 
 
 
@@ -31,19 +33,19 @@ createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path='/Signin' element={<Signin/>}></Route>
       <Route path='/Admin' element={<Admin/>}></Route>
-      <Route path='/AddItems' element={<AddItems/>}></Route>
-      <Route path='/Items' element={<Items/>}></Route>
-      <Route path='/Items/:id' element={<Items/>}></Route>
-      <Route path='/View/:id' element={<View/>}></Route>
-      <Route path='Edit/:id' element={<Edit />}></Route>
+      <Route path='/AddItems' element={<AdminProtectedRoute><AddItems /></AdminProtectedRoute>}></Route>
+      <Route path='/Items' element={<AdminProtectedRoute><Items /></AdminProtectedRoute>}></Route>
+      <Route path='/Items/:id' element={<AdminProtectedRoute><Items /></AdminProtectedRoute>}></Route>
+      <Route path='/View/:id' element={<AdminProtectedRoute><View /></AdminProtectedRoute>}></Route>
+      <Route path='Edit/:id' element={<AdminProtectedRoute><Edit /></AdminProtectedRoute>}></Route>
       <Route path='Productdetails/:id' element={<Productdetails />}></Route>
       <Route path='/Cartdetails' element={<Cartdetails />}></Route>
       <Route path='/OrderReview' element={<OrderReview />}></Route>
       <Route path='/Makepayment' element={<Makepayment />}></Route>
-      <Route path='/Adminhome' element={<Adminhome />}></Route>
-      <Route path='/Orders' element={<Orders />}></Route>
+      <Route path='/Adminhome' element={<AdminProtectedRoute><Adminhome /></AdminProtectedRoute>}></Route>
+      <Route path='/Orders' element={<AdminProtectedRoute><Orders /></AdminProtectedRoute>}></Route>
       <Route path='/Useraccount' element={<Useraccount />}></Route>
-      <Route path='/Dashboard' element={<Dashboard />}></Route>
+      <Route path='/Dashboard' element={<AdminProtectedRoute><Dashboard /></AdminProtectedRoute>}></Route>
       <Route path='/Userdetails' element={<Userdetails />}></Route>
       <Route path='/*' element={<App/>}></Route>
     </Routes>

@@ -114,7 +114,7 @@ function Cartdetails  () {
         <p className='freedel'>Yay! You get Free delivery with this Basket</p>
         {details.map((item)=>(
         <div className='cartproduct' key={item._id}>
-            <p className='deliverydate'>Delivery between 23 mar to 26 mar</p>
+            <p className='deliverydate'>Delivery between 26 may to 29 may</p>
             <div className='detailspro'>
             <div className='detailspone'>
             <img src={item.image} alt={item.image} width={300} className='cartimage' />

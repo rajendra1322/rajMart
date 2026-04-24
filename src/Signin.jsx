@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./Signin.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -52,57 +51,103 @@ function Signin(props) {
 
 
     return (
-        <>
-            {!showotp ? (<form onSubmit={handleSubmit}>
-                <div className="container">
+      <>
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200">
 
-                    <Link to="/">
+    {!showotp ? (
+      <form onSubmit={handleSubmit} className="w-full max-w-md">
 
-                        <div className="close">X</div>
-                    </Link>
-                    <h2>Almost there!</h2>
-                    <p className="firstp">Simply sign in to place your order</p>
-                    <div className="label">
-                        <label htmlFor="number" className="labeled">Mobile Number</label><br />
-                        <input
-                            type="text"
-                            className="num"
-                            placeholder="+91-"
-                            value={number}
-                            maxLength={10}
-                            onChange={(e) => setNumber(e.target.value.replace(/\D/g, ""))}
+        <div className="bg-white rounded-2xl shadow-xl p-6 relative w-[500px] h-[700px] ml-[700px]">
 
-                        />
-                        {message && <p className="message">{message}</p>}
-                    </div>
-                    <div className="labelmail">
-                        <label htmlFor="email" className="labeled">Email </label><br />
-                        <input
-                            type="text"
-                            className="num"
-                            placeholder="xxxx@gmail.com"
-                            value={email}
-                            onChange={(e) => setMail(e.target.value)}
-                        />
-                        {message && <p className="message">{message}</p>}
+          {/* Close */}
+          <Link to="/">
+            <div className="absolute top-4 right-4 text-gray-500 hover:text-black cursor-pointer text-xl">
+              ✕
+            </div>
+          </Link>
 
+          {/* Header */}
+          <h2 className="text-2xl font-bold text-gray-800 mb-1">
+            Almost there!
+          </h2>
+          <p className="text-gray-500 mb-6">
+            Simply sign in to place your order
+          </p>
 
-                    </div>
+          {/* Mobile */}
+          <div className="mb-4">
+            <label className="text-sm text-gray-600">Mobile Number</label>
+            <input
+              type="text"
+              placeholder="+91-"
+              value={number}
+              maxLength={10}
+              onChange={(e) =>
+                setNumber(e.target.value.replace(/\D/g, ""))
+              }
+              className="w-full mt-1 mb-[30px] p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+            />
+          </div>
 
-                    <div className="footer">
-                        <p className="footerp">By signing in, you agree to our <a>Terms and Conditions of Use</a>and <a >Privacy Policy.</a></p>
-                        <button type="submit" disabled={!isvalid} className={`btn ${isvalid ? "enabled" : ""}`}>Sign In </button>
+          {/* Email */}
+          <div className="mb-4">
+            <label className="text-sm text-gray-600">Email</label>
+            <input
+              type="text"
+              placeholder="xxxx@gmail.com"
+              value={email}
+              onChange={(e) => setMail(e.target.value)}
+              className="w-full mt-1 mb-[240px] p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+            />
+          </div>
 
-                    </div>
+          {/* Error */}
+          {message && (
+            <p className="text-red-500 text-sm mb-3">{message}</p>
+          )}
 
+          {/* Footer */}
+          <p className="text-xs text-gray-500 mb-4">
+            By signing in, you agree to our{" "}
+            <span className="text-blue-600 cursor-pointer">
+              Terms
+            </span>{" "}
+            and{" "}
+            <span className="text-blue-600 cursor-pointer">
+              Privacy Policy
+            </span>
+          </p>
 
-                </div>
-            </form>) : (
+          {/* Button */}
+          <button
+            type="submit"
+            disabled={!isvalid}
+            className={`w-full py-3 rounded-lg text-white font-semibold transition 
+              ${
+                isvalid
+                  ? "bg-blue-600 hover:bg-blue-700"
+                  : "bg-blue-300 cursor-not-allowed"
+              }`}
+          >
+            Sign In
+          </button>
 
-                <Otp length={6} onotpSubmit={onotpSubmit} email={email} redirect={redirect}/>
-            )}
-
-        </>
+        </div>
+      </form>
+    ) : (
+      <div className="w-full max-w-md">
+        <div className="bg-white rounded-2xl shadow-xl p-6">
+          <Otp
+            length={6}
+            onotpSubmit={onotpSubmit}
+            email={email}
+            redirect={redirect}
+          />
+        </div>
+      </div>
+    )}
+  </div>
+</>
 
 
     );
