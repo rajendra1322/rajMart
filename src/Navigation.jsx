@@ -83,7 +83,7 @@ function Navigation() {
         return sum + (item.quantity * item.price);
     }, 0);
     const totalQuantity = cart.length;
-    const isVaild=cart.length>0;
+    const isVaild = cart.length > 0;
     const toggleCart = () => {
         setShowcart((prev) => !prev);
         window.dispatchEvent(new Event("updatedCart"));
@@ -92,6 +92,7 @@ function Navigation() {
     const handlepinclick = (e) => {
         e.preventDefault();
         setShowpincode(true);
+        setshowLocaiton(false);
     }
     const [pinn, setPinc] = useState("");
     const isValid = pinn.length === 6;
@@ -171,35 +172,54 @@ function Navigation() {
     const [mapLocation, setmapLocation] = useState(null);
 
     const getAddress = async (lat, lng) => {
-        const res = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
-        );
-        const data = await res.json();
-        return data.display_name;
+        try {
+            const res = await fetch(
+                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
+            );
+            const data = await res.json();
+            return data.display_name || "Address not found";
+        } catch (err) {
+            console.log(err);
+            return "Error fetching address";
+        }
     };
 
-    const handleSave = async (e) => {
-    e.preventDefault();
-
-    if (!mapLocation) {
-        alert("Please select location on map");
-        return;
-    }
-
-    const addr = await getAddress(mapLocation.lat, mapLocation.lng);
-    setAddress(addr);
-
-    localStorage.setItem("userAddress", addr);
-    localStorage.setItem("userLocation", JSON.stringify(mapLocation));
-
-    setshowLocaiton(false);
-
-    console.log("LatLng:", mapLocation);
-    console.log("Address:", addr);
-};
-    const [address, setAddress] = useState("");
-
     
+    const [loading, setLoading] = useState(false);
+    const handleSave = async () => {
+        if (!mapLocation) {
+            alert("Please select location on map");
+            return;
+        }
+
+        setLoading(true);
+
+        const addr = await getAddress(mapLocation.lat, mapLocation.lng);
+
+        setAddress(addr);
+
+        localStorage.setItem("userAddress", addr);
+        localStorage.setItem("userLocation", JSON.stringify(mapLocation));
+
+        setLoading(false);
+    };
+    const handleContinue = () => {
+        setshowLocaiton(false);
+
+        
+    };
+    const [address, setAddress] = useState("");
+    useEffect(() => {
+        const savedAddress = localStorage.getItem("userAddress");
+        const savedLocation = localStorage.getItem("userLocation");
+
+        if (savedAddress && savedLocation) {
+            setAddress(savedAddress);
+            setmapLocation(JSON.parse(savedLocation));
+        }
+    }, []);
+
+
 
 
 
@@ -307,7 +327,7 @@ function Navigation() {
                 </div>
             </nav>
 
-            <div className="location" onClick={() => setshowLocaiton(true)}>
+            <div className="location" onClick={() => {setshowLocaiton(true)}}>
                 <p className="deliveryText">Scheduled delivery to:
                     <strong> {place}{currentpin}</strong>
 
@@ -320,31 +340,88 @@ function Navigation() {
 
             </div>
             {showLocation && (
-                <div className="overlay">
-                    <div className="popup">
-                        <div className="popupheader">
-                            <h1 className="header">Select Delivery Location</h1>
-                            <span className="spanX" onClick={() => setshowLocaiton(false)}>X</span>
-                        </div>
-                        <p className="pL">Sign in or set delivery location to see product availability, offers and discounts.</p>
-                        <button className="locbtn">Sign In to select address</button>
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
 
-                        <div className="pincodediv">
-                            <img src={pin} alt="pincode" className="locationimg" />
-                            <a href="/" className="atag" onClick={handlepinclick}>Enter a pincode</a>
-                        </div>
-                        <div className="locationdiv">
-                            <img src={locationn} alt="pincode" className="locationimg" />
-                            <MapPicker setLocation={setmapLocation} />
-                            <button className="atag" onClick={handleSave}>
-                                Use This Location
+                    <div className="w-[420px] bg-white rounded-2xl shadow-xl p-5">
+
+                       
+                        <div className="flex justify-between items-center mb-3">
+                            <h2 className="text-lg font-semibold">
+                                Select Delivery Location
+                            </h2>
+                            <button
+                                onClick={() => setshowLocaiton(false)}
+                                className="text-gray-500 hover:text-black text-lg"
+                            >
+                                ✕
                             </button>
                         </div>
+
+                       
+                        <p className="text-sm text-gray-600 mb-4">
+                            Set your delivery location to check availability, offers and discounts.
+                        </p>
+
+                       
+                        <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 rounded-lg mb-3">
+                            Sign In to select address
+                        </button>
+
+                        
+                        <div className="flex items-center my-3">
+                            <div className="flex-1 h-px bg-gray-300"></div>
+                            <span className="px-2 text-gray-500 text-sm">OR</span>
+                            <div className="flex-1 h-px bg-gray-300"></div>
+                        </div>
+
+                        
+                        <div
+                            onClick={handlepinclick}
+                            className="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-100 mb-3"
+                        >
+                            <img src={pin} alt="pin" className="w-5 h-5" />
+                            <span className="text-sm font-medium">
+                                Enter a pincode
+                            </span>
+                        </div>
+
+                        
+                        <div className="border rounded-lg p-3">
+                            <div className="h-[200px] rounded-md overflow-hidden mb-3">
+                                <MapPicker setLocation={setmapLocation} />
+                            </div>
+
+                            <button
+                                onClick={handleSave}
+                                disabled={!mapLocation || loading}
+                                className={`w-full py-2 rounded-lg font-medium ${mapLocation
+                                    ? "bg-blue-600 hover:bg-blue-700 text-white"
+                                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                    }`}
+                            >
+                                {loading ? "Fetching Address..." : "Use This Location"}
+                            </button>
+                        </div>
+
+                       
                         {address && (
-                            <p>
-                                <b>Selected Address:</b> {address}
-                            </p>
+                            <div className="mt-4 bg-gray-100 p-3 rounded-lg">
+                                <p className="text-sm font-semibold mb-1">
+                                    Selected Address:
+                                </p>
+                                <p className="text-sm text-gray-700 break-words">
+                                    {address}
+                                </p>
+
+                                <button
+                                    onClick={handleContinue}
+                                    className="mt-3 w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-medium"
+                                >
+                                    Continue
+                                </button>
+                            </div>
                         )}
+
                     </div>
                 </div>
             )}

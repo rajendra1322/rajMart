@@ -231,7 +231,7 @@ function Useraccount() {
 
                 <div className="useraccountbtwo w-2/3">
 
-  {/* ================= QR SCANNED MODE ================= */}
+  
   {order ? (
     <div className=" p-5 rounded-xl shadow mt-[100px] ml-[20px] border-[#00000050] border-[1px] border-[soild]">
 
@@ -271,9 +271,9 @@ function Useraccount() {
     </div>
   ) : (
     <>
-      {/* ================= NORMAL MODE ================= */}
+     
 
-      {/* ACCOUNT INFORMATION */}
+     
       {accountdtl && (
         <div className=" p-5 rounded-xl shadow mb-6 mt-[100px] border-[#00000041] border-[1px] border-[soild] ml-[30px]">
 
@@ -296,7 +296,6 @@ function Useraccount() {
         </div>
       )}
 
-      {/* NORMAL ORDERS */}
       {myorder && (
         <div className="space-y-4">
 

@@ -25,14 +25,14 @@ function Offersection(){
             <Slider {...settings}> 
                 
 
-                    <div><OfferCard name="Redmi Note 5"  price={5000} /></div>
-                    <div><OfferCard name="Redmi Note 5"  price={5000} /></div>
-                    <div><OfferCard name="Redmi Note 5"  price={5000} /></div>
-                    <div><OfferCard name="Redmi Note 5"  price={5000} /></div>
-                    <div><OfferCard name="Redmi Note 5"  price={5000} /></div>
-                    <div><OfferCard name="Redmi Note 5"  price={5000} /></div>
-                    <div><OfferCard name="Redmi Note 5"  price={5000} /></div>
-                    <div><OfferCard name="Redmi Note 5"  price={5000} /></div>
+                    <div><OfferCard name="Redmi Note 3"  price={9000} /></div>
+                    <div><OfferCard name="Redmi Note 5"  price={10000} /></div>
+                    <div><OfferCard name="Redmi Note 6"  price={11000} /></div>
+                    <div><OfferCard name="Redmi Note 7"  price={12000} /></div>
+                    <div><OfferCard name="Redmi Note 8"  price={13000} /></div>
+                    <div><OfferCard name="Redmi Note 9"  price={14000} /></div>
+                    <div><OfferCard name="Redmi Note 12"  price={14000} /></div>
+                    <div><OfferCard name="Redmi Note 13"  price={15000} /></div>
            
         
             </Slider>

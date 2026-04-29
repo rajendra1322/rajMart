@@ -30,23 +30,7 @@ function View(){
 
 
   return (
-    // <div className='viewcontainer'>
-    // <div className='container'>
-    //   <img src={left} alt="left arrow" className='leftimage' onClick={()=>navigate(-1)}/>
-      
-    //   <button className='editbtn' onClick={()=>navigate(`/Items/${id}`)}>Edit</button>
-      
-    //   <h1 className='view'>Product Details</h1>
-    //   <img src={product.image} alt={product.name}  className='imageView'/>
-    //   <p className='nameP'><strong>Name:</strong>{product.name}</p>
-    //   <p className='quanP'><strong>Quantity:</strong>{product.quantity}</p>
-    //   <p className='priceP'><strong>Price:</strong>{product.price}</p>
-    //   <p className='priceP'><strong>Category:</strong>{product.category}</p>
-      
-
-
-    // </div>
-    // </div>
+    
     <div className="flex min-h-screen bg-gray-50">
 
   <Adminhome />

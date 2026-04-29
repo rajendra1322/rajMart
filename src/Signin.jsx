@@ -19,7 +19,7 @@ function Signin(props) {
 
     const [searchParams] = useSearchParams();
     const redirect = decodeURIComponent(searchParams.get("redirect") || "");
-    console.log("Redirect URL:", redirect);
+    // console.log("Redirect URL:", redirect);
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -59,14 +59,14 @@ function Signin(props) {
 
         <div className="bg-white rounded-2xl shadow-xl p-6 relative w-[500px] h-[700px] ml-[700px]">
 
-          {/* Close */}
+          
           <Link to="/">
             <div className="absolute top-4 right-4 text-gray-500 hover:text-black cursor-pointer text-xl">
               ✕
             </div>
           </Link>
 
-          {/* Header */}
+          
           <h2 className="text-2xl font-bold text-gray-800 mb-1">
             Almost there!
           </h2>
@@ -74,7 +74,7 @@ function Signin(props) {
             Simply sign in to place your order
           </p>
 
-          {/* Mobile */}
+          
           <div className="mb-4">
             <label className="text-sm text-gray-600">Mobile Number</label>
             <input
@@ -89,7 +89,7 @@ function Signin(props) {
             />
           </div>
 
-          {/* Email */}
+          
           <div className="mb-4">
             <label className="text-sm text-gray-600">Email</label>
             <input
@@ -101,12 +101,12 @@ function Signin(props) {
             />
           </div>
 
-          {/* Error */}
+          
           {message && (
             <p className="text-red-500 text-sm mb-3">{message}</p>
           )}
 
-          {/* Footer */}
+          
           <p className="text-xs text-gray-500 mb-4">
             By signing in, you agree to our{" "}
             <span className="text-blue-600 cursor-pointer">
@@ -118,7 +118,7 @@ function Signin(props) {
             </span>
           </p>
 
-          {/* Button */}
+          
           <button
             type="submit"
             disabled={!isvalid}

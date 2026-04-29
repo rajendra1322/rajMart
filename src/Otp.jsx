@@ -92,7 +92,7 @@ function Otp({ length = 6, onotpSubmit = () => { }, email, redirect }) {
 
   <div className="w-[400px] max-w-md bg-white rounded-2xl shadow-xl p-6 relative">
 
-    {/* Back Button */}
+    
     <img
       src={leftexit}
       alt="back"
@@ -100,7 +100,7 @@ function Otp({ length = 6, onotpSubmit = () => { }, email, redirect }) {
       className="w-6 h-6 cursor-pointer absolute top-5 left-5 opacity-70 hover:opacity-100"
     />
 
-    {/* Heading */}
+   
     <h2 className="text-2xl font-bold text-center text-gray-800 mt-4">
       Verify OTP
     </h2>
@@ -113,7 +113,7 @@ function Otp({ length = 6, onotpSubmit = () => { }, email, redirect }) {
       {email}
     </p>
 
-    {/* Update */}
+    
     <p
       className="text-center text-sm text-blue-600 mt-2 cursor-pointer hover:underline"
       onClick={() => navigate("/Signin")}
@@ -121,7 +121,7 @@ function Otp({ length = 6, onotpSubmit = () => { }, email, redirect }) {
       Update Number
     </p>
 
-    {/* OTP Inputs */}
+    
     <div className="flex justify-center gap-3 mt-8">
       {otp.map((value, index) => (
         <input
@@ -143,14 +143,14 @@ function Otp({ length = 6, onotpSubmit = () => { }, email, redirect }) {
       ))}
     </div>
 
-    {/* Error */}
+    
     {otpmsg && (
       <p className="text-red-500 text-sm text-center mt-4">
         {otpmsg}
       </p>
     )}
 
-    {/* Button */}
+   
     <button
       onClick={verifyOtp}
       className="w-full mt-8 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
