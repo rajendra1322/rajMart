@@ -28,7 +28,13 @@ function Productdetails (){
     fetchData();
     },[id])
     if(!product){
-        return <h2>loading...</h2>
+        return <div className="flex flex-col items-center justify-center mt-96 ml-[900px]">
+          <div className="w-28 h-28 border-4 border-blue-400 border-t-transparent rounded-full border-[10px] animate-spin">
+             <div className="w-20 h-20 border-4 border-red-400  border-b-transparent rounded-full ml-[5px] mt-[5px] border-[10px] animate-spin "></div>
+
+          </div>
+          <p className="mt-4 text-gray-700 font-semibold text-xl animate-pulse">Loading...</p>
+        </div>
     }
     const usercount=localStorage.getItem("token");
     

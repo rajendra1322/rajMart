@@ -30,6 +30,8 @@ function Orders() {
   useEffect(() => {
     fetchOrders();
   }, []);
+ 
+
 
   
   const updateStatus = async (id, status) => {
@@ -140,6 +142,7 @@ function Orders() {
       ),
     },
   ];
+ 
 
   return (
     <div style={{ display: "flex" }}>
